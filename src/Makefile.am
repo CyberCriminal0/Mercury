@@ -169,7 +169,7 @@ libbitcoin_common_a_SOURCES = \
 libbitcoin_util_a_CPPFLAGS = $(BITCOIN_INCLUDES)
 libbitcoin_util_a_SOURCES = \
   clientversion.cpp \
-  mercurypeech.cpp \
+  mercuryspeech.cpp \
   random.cpp \
   rpcprotocol.cpp \
   support/cleanse.cpp \

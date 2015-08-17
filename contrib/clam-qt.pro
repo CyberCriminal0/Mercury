@@ -241,7 +241,7 @@ HEADERS += src/qt/bitcoingui.h \
     src/chainparams.h
 
 SOURCES += src/txdb-leveldb.cpp \
-    src/mercurypeech.cpp \
+    src/mercuryspeech.cpp \
     src/qt/bitcoin.cpp \
     src/qt/bitcoingui.cpp \
     src/qt/transactiontablemodel.cpp \
