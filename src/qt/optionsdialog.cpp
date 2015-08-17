@@ -9,7 +9,7 @@
 #include "monitoreddatamapper.h"
 #include "netbase.h"
 #include "optionsmodel.h"
-#include "clamspeech.h"
+#include "mercurypeech.h"
 #include "guiutil.h"
 #include "util.h"
 
@@ -95,7 +95,7 @@ OptionsDialog::OptionsDialog(QWidget *parent) :
     mapper->setOrientation(Qt::Vertical);
 
     /* map quote editor to enable apply button */
-    connect( ui->clamSpeechEditbox, SIGNAL(textChanged()), this, SLOT(enableApplyButton()) );
+    connect( ui->mercurySpeechEditbox, SIGNAL(textChanged()), this, SLOT(enableApplyButton()) );
     /* enable apply button when data modified */
     connect(mapper, SIGNAL(viewModified()), this, SLOT(enableApplyButton()));
     /* disable apply button when new data loaded */
@@ -122,7 +122,7 @@ void OptionsDialog::setModel(OptionsModel *model)
         mapper->toFirst();
     }
 
-    loadClamQuotes();
+    loadMercuryQuotes();
 
     /* update the display unit, to not use the default ("BTC") */
     updateDisplayUnit();
@@ -160,40 +160,40 @@ void OptionsDialog::setMapper()
     mapper->addMapping(ui->unit, OptionsModel::DisplayUnit);
     mapper->addMapping(ui->coinControlFeatures, OptionsModel::CoinControlFeatures);
     mapper->addMapping(ui->minimizeCoinAge, OptionsModel::MinimizeCoinAge);
-    mapper->addMapping(ui->useClamTheme, OptionsModel::UseClamTheme);
-    mapper->addMapping(ui->clamSpeechGroupbox, OptionsModel::UseClamSpeech);
-    mapper->addMapping(ui->clamSpeechRandomCheckbox, OptionsModel::UseClamSpeechRandom);
+    mapper->addMapping(ui->useMercuryTheme, OptionsModel::UseMercuryTheme);
+    mapper->addMapping(ui->mercurySpeechGroupbox, OptionsModel::UseMercurySpeech);
+    mapper->addMapping(ui->mercurySpeechRandomCheckbox, OptionsModel::UseMercurySpeechRandom);
 }
 
-void OptionsDialog::loadClamQuotes()
+void OptionsDialog::loadMercuryQuotes()
 {
-    if ( !fUseClamSpeech )
+    if ( !fUseMercurySpeech )
         return;
 
-    ui->clamSpeechEditbox->clear();
-    for ( ulong i = 0; i < clamSpeech.size(); i++ )
-        ui->clamSpeechEditbox->appendPlainText( QString::fromStdString( clamSpeech.at(i) ) );
+    ui->mercurySpeechEditbox->clear();
+    for ( ulong i = 0; i < mercurySpeech.size(); i++ )
+        ui->mercurySpeechEditbox->appendPlainText( QString::fromStdString( mercurySpeech.at(i) ) );
 }
 
-void OptionsDialog::saveClamQuotes()
+void OptionsDialog::saveMercuryQuotes()
 {
-    if ( !fUseClamSpeech )
+    if ( !fUseMercurySpeech )
         return;
 
-    clamSpeech.clear();
-    QStringList list = ui->clamSpeechEditbox->toPlainText().split( '\n' );
+    mercurySpeech.clear();
+    QStringList list = ui->mercurySpeechEditbox->toPlainText().split( '\n' );
 
     foreach ( const QString &strLine, list )
         if ( !strLine.isEmpty() )
-            clamSpeech.push_back( strLine.trimmed().toStdString() );
+            mercurySpeech.push_back( strLine.trimmed().toStdString() );
 
-    // save clam quotes
-    qDebug() << "saving clamspeech";
-    if ( !SaveClamSpeech() )
+    // save mercury quotes
+    qDebug() << "saving mercurypeech";
+    if ( !SaveMercurySpeech() )
         qDebug() << "CLAMSpeech FAILED to save!";
 
     // send signal to BitcoinGUI->SendCoinsDialog
-    emit onClamSpeechUpdated();
+    emit onMercurySpeechUpdated();
 }
 
 void OptionsDialog::enableApplyButton()
@@ -231,7 +231,7 @@ void OptionsDialog::on_cancelButton_clicked()
 void OptionsDialog::on_applyButton_clicked()
 {
     mapper->submit();
-    saveClamQuotes();
+    saveMercuryQuotes();
     disableApplyButton();
 }
 
@@ -239,7 +239,7 @@ void OptionsDialog::showRestartWarning_Proxy()
 {
     if(!fRestartWarningDisplayed_Proxy)
     {
-        QMessageBox::warning(this, tr("Warning"), tr("This setting will take effect after restarting Clam."), QMessageBox::Ok);
+        QMessageBox::warning(this, tr("Warning"), tr("This setting will take effect after restarting Mercury."), QMessageBox::Ok);
         fRestartWarningDisplayed_Proxy = true;
     }
 }
@@ -248,7 +248,7 @@ void OptionsDialog::showRestartWarning_Lang()
 {
     if(!fRestartWarningDisplayed_Lang)
     {
-        QMessageBox::warning(this, tr("Warning"), tr("This setting will take effect after restarting Clam."), QMessageBox::Ok);
+        QMessageBox::warning(this, tr("Warning"), tr("This setting will take effect after restarting Mercury."), QMessageBox::Ok);
         fRestartWarningDisplayed_Lang = true;
     }
 }

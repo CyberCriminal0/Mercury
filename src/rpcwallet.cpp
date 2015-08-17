@@ -114,7 +114,7 @@ Value getnewaddress(const Array& params, bool fHelp)
     if (fHelp || params.size() > 1)
         throw runtime_error(
             "getnewaddress [account]\n"
-            "Returns a new Clam address for receiving payments.  "
+            "Returns a new Mercury address for receiving payments.  "
             "If [account] is specified (recommended), it is added to the address book "
             "so payments received with the address will be credited to [account].");
 
@@ -181,7 +181,7 @@ Value getaccountaddress(const Array& params, bool fHelp)
     if (fHelp || params.size() != 1)
         throw runtime_error(
             "getaccountaddress <account>\n"
-            "Returns the current Clam address for receiving payments to this account.");
+            "Returns the current Mercury address for receiving payments to this account.");
 
     // Parse the account first so we don't generate a key if there's an error
     string strAccount = AccountFromValue(params[0]);
@@ -199,12 +199,12 @@ Value setaccount(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() < 1 || params.size() > 2)
         throw runtime_error(
-            "setaccount <clamaddress> <account>\n"
+            "setaccount <mercuryaddress> <account>\n"
             "Sets the account associated with the given address.");
 
     CBitcoinAddress address(params[0].get_str());
     if (!address.IsValid())
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Clam address");
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Mercury address");
 
 
     string strAccount;
@@ -229,12 +229,12 @@ Value getaccount(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
         throw runtime_error(
-            "getaccount <clamaddress>\n"
+            "getaccount <mercuryaddress>\n"
             "Returns the account associated with the given address.");
 
     CBitcoinAddress address(params[0].get_str());
     if (!address.IsValid())
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Clam address");
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Mercury address");
 
     string strAccount;
     map<CTxDestination, string>::iterator mi = pwalletMain->mapAddressBook.find(address.Get());
@@ -269,13 +269,13 @@ Value sendtoaddress(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() < 2 || params.size() > 5)
         throw runtime_error(
-            "sendtoaddress <clamaddress> <amount> [comment] [comment-to] [tx-comment]\n"
+            "sendtoaddress <mercuryaddress> <amount> [comment] [comment-to] [tx-comment]\n"
             "<amount> is either an amount to send or {\"count\":c,\"amount\":a} which sends <c> separate outputs each of size <a> CLAMs"
             + HelpRequiringPassphrase());
 
     CBitcoinAddress address(params[0].get_str());
     if (!address.IsValid())
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Clam address");
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Mercury address");
 
     // Amount
     int64_t nAmount, nCount;
@@ -304,18 +304,18 @@ Value sendtoaddress(const Array& params, bool fHelp)
         wtx.mapValue["to"]      = params[3].get_str();
 
      // Transaction comment
-    std::string clamspeech;
+    std::string mercurypeech;
     if (params.size() > 4 && params[4].type() != null_type && !params[4].get_str().empty())
     {
-        clamspeech = params[4].get_str();
-        if (clamspeech.length() > MAX_TX_COMMENT_LEN)
-            clamspeech.resize(MAX_TX_COMMENT_LEN);
+        mercurypeech = params[4].get_str();
+        if (mercurypeech.length() > MAX_TX_COMMENT_LEN)
+            mercurypeech.resize(MAX_TX_COMMENT_LEN);
      }
 
     if (pwalletMain->IsLocked())
         throw JSONRPCError(RPC_WALLET_UNLOCK_NEEDED, "Error: Please enter the wallet passphrase with walletpassphrase first.");
 
-    string strError = pwalletMain->SendMoneyToDestination(address.Get(), nAmount, nCount, wtx, clamspeech);
+    string strError = pwalletMain->SendMoneyToDestination(address.Get(), nAmount, nCount, wtx, mercurypeech);
     if (strError != "")
         throw JSONRPCError(RPC_WALLET_ERROR, strError);
 
@@ -357,7 +357,7 @@ Value signmessage(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 2)
         throw runtime_error(
-            "signmessage <clamaddress> <message>\n"
+            "signmessage <mercuryaddress> <message>\n"
             "Sign a message with the private key of an address");
 
     EnsureWalletIsUnlocked();
@@ -392,8 +392,8 @@ Value getstakedbyaddress(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() < 1 || params.size() > 2)
         throw runtime_error(
-            "getstakedbyaddress <clamaddress|*> [minconf=1]\n"
-            "Returns the total reward (including fees) earned from staking by <clamaddress> with at least [minconf] confirmations.");
+            "getstakedbyaddress <mercuryaddress|*> [minconf=1]\n"
+            "Returns the total reward (including fees) earned from staking by <mercuryaddress> with at least [minconf] confirmations.");
 
     // Bitcoin address
     string strAddressParam = params[0].get_str();
@@ -407,13 +407,13 @@ Value getstakedbyaddress(const Array& params, bool fHelp)
         address = CBitcoinAddress(strAddressParam);
 
         if (!address.IsValid())
-            throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Clam address");
+            throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Mercury address");
 
         if (!address.GetKeyID(keyID))
-            throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Can't find keyID for Clam address");
+            throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Can't find keyID for Mercury address");
 
         if (!pwalletMain->GetPubKey(keyID, key))
-            throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Can't find pubkey for Clam address");
+            throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Can't find pubkey for Mercury address");
 
         scriptPubKey << key << OP_CHECKSIG;
 
@@ -470,14 +470,14 @@ Value getreceivedbyaddress(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() < 1 || params.size() > 2)
         throw runtime_error(
-            "getreceivedbyaddress <clamaddress> [minconf=1]\n"
-            "Returns the total amount received by <clamaddress> in transactions with at least [minconf] confirmations.");
+            "getreceivedbyaddress <mercuryaddress> [minconf=1]\n"
+            "Returns the total amount received by <mercuryaddress> in transactions with at least [minconf] confirmations.");
 
     // Bitcoin address
     CBitcoinAddress address = CBitcoinAddress(params[0].get_str());
     CScript scriptPubKey;
     if (!address.IsValid())
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Clam address");
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Mercury address");
     scriptPubKey.SetDestination(address.Get());
     if (!IsMine(*pwalletMain,scriptPubKey))
         return (double)0.0;
@@ -700,14 +700,14 @@ Value sendfrom(const Array& params, bool fHelp)
 {
      if (fHelp || params.size() < 3 || params.size() > 7)
         throw runtime_error(
-            "sendfrom <fromaccount> <toclamaddress> <amount> [minconf=1] [comment] [comment-to] [tx-comment]\n"
+            "sendfrom <fromaccount> <tomercuryaddress> <amount> [minconf=1] [comment] [comment-to] [tx-comment]\n"
             "<amount> is either an amount to send or {\"count\":c,\"amount\":a} which sends <c> separate outputs each of size <a> CLAMs"
             + HelpRequiringPassphrase());
 
     string strAccount = AccountFromValue(params[0]);
     CBitcoinAddress address(params[1].get_str());
     if (!address.IsValid())
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Clam address");
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Mercury address");
 
     int64_t nAmount, nCount;
 
@@ -738,12 +738,12 @@ Value sendfrom(const Array& params, bool fHelp)
     if (params.size() > 5 && params[5].type() != null_type && !params[5].get_str().empty())
         wtx.mapValue["to"]      = params[5].get_str();
 
-    std::string clamspeech;
+    std::string mercurypeech;
     if (params.size() > 6 && params[6].type() != null_type && !params[6].get_str().empty())
     {
-        clamspeech = params[6].get_str();
-        if (clamspeech.length() > MAX_TX_COMMENT_LEN)
-            clamspeech.resize(MAX_TX_COMMENT_LEN);
+        mercurypeech = params[6].get_str();
+        if (mercurypeech.length() > MAX_TX_COMMENT_LEN)
+            mercurypeech.resize(MAX_TX_COMMENT_LEN);
     }
 
     EnsureWalletIsUnlocked();
@@ -754,7 +754,7 @@ Value sendfrom(const Array& params, bool fHelp)
         throw JSONRPCError(RPC_WALLET_INSUFFICIENT_FUNDS, "Account has insufficient funds");
 
     // Send
-    string strError = pwalletMain->SendMoneyToDestination(address.Get(), nAmount, nCount, wtx, clamspeech);
+    string strError = pwalletMain->SendMoneyToDestination(address.Get(), nAmount, nCount, wtx, mercurypeech);
     if (strError != "")
         throw JSONRPCError(RPC_WALLET_ERROR, strError);
 
@@ -793,7 +793,7 @@ Value sendmany(const Array& params, bool fHelp)
     {
         CBitcoinAddress address(s.name_);
         if (!address.IsValid())
-            throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, string("Invalid Clam address: ")+s.name_);
+            throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, string("Invalid Mercury address: ")+s.name_);
 
         setAddress.insert(address);
 
@@ -835,7 +835,7 @@ Value addmultisigaddress(const Array& params, bool fHelp)
     {
         string msg = "addmultisigaddress <nrequired> <'[\"key\",\"key\"]'> [account]\n"
             "Add a nrequired-to-sign multisignature address to the wallet\"\n"
-            "each key is a Clam address or hex-encoded public key\n"
+            "each key is a Mercury address or hex-encoded public key\n"
             "If [account] is specified, assign address to [account].";
         throw runtime_error(msg);
     }
@@ -1641,7 +1641,7 @@ Value encryptwallet(const Array& params, bool fHelp)
     // slack space in .dat files; that is bad if the old data is
     // unencrypted private keys. So:
     StartShutdown();
-    return "wallet encrypted; Clam server stopping, restart to run with encrypted wallet.  The keypool has been flushed, you need to make a new backup.";
+    return "wallet encrypted; Mercury server stopping, restart to run with encrypted wallet.  The keypool has been flushed, you need to make a new backup.";
 }
 
 

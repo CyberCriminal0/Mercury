@@ -4,8 +4,8 @@
 #include <vector>
 #include <string>
 
-extern std::vector<std::string> clamSpeechList;
-extern std::vector<std::string> clamSpeech;
+extern std::vector<std::string> mercurySpeechList;
+extern std::vector<std::string> mercurySpeech;
 extern std::vector<std::string> quoteList;
 
 void CSLoad();

@@ -62,7 +62,7 @@ public:
         // Build the genesis block. Note that the output of the genesis coinbase cannot
         // be spent as it did not originally exist in the database.
         //
-        const char* pszTimestamp = "14/Apr/2014 No chowder for you, cause clams have feelings too";
+        const char* pszTimestamp = "14/Apr/2014 No chowder for you, cause mercury have feelings too";
         CTransaction txNew;
         txNew.nTime = 1397512438;
         txNew.vin.resize(1);
@@ -81,9 +81,9 @@ public:
         assert(hashGenesisBlock == uint256("0x00000c3ce6b3d823a35224a39798eca9ad889966aeb5a9da7b960ffb9869db35"));
         assert(genesis.hashMerkleRoot == uint256("0xef10b32afd53e4a6ebb8bdb0486c6acbe9b43afe3dfa538e913b89bb1319ff96"));
 
-        // push peer seeders running this network crawler: https://github.com/dooglus/bitcoin-seeder/tree/clam
-        PUSH_SEED("clam.just-dice.com")
-        PUSH_SEED("seed.clams.xyz")
+        // push peer seeders running this network crawler: https://github.com/dooglus/bitcoin-seeder/tree/mercury
+        PUSH_SEED("mercury.just-dice.com")
+        PUSH_SEED("seed.mercury.xyz")
 
         base58Prefixes[PUBKEY_ADDRESS] = list_of(137);
         base58Prefixes[SCRIPT_ADDRESS] = list_of(13);

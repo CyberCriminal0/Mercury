@@ -40,7 +40,7 @@ bin_PROGRAMS =
 TESTS =
 
 if BUILD_BITCOIND
-  bin_PROGRAMS += clamd
+  bin_PROGRAMS += mercuryd
 endif
 
 .PHONY: FORCE
@@ -54,7 +54,7 @@ BITCOIN_CORE_H = \
   chainparams.h \
   chainparamsseeds.h \
   checkpoints.h \
-  clamspeech.h \
+  mercurypeech.h \
   clientversion.h \
   coincontrol.h \
   compat.h \
@@ -169,7 +169,7 @@ libbitcoin_common_a_SOURCES = \
 libbitcoin_util_a_CPPFLAGS = $(BITCOIN_INCLUDES)
 libbitcoin_util_a_SOURCES = \
   clientversion.cpp \
-  clamspeech.cpp \
+  mercurypeech.cpp \
   random.cpp \
   rpcprotocol.cpp \
   support/cleanse.cpp \
@@ -181,8 +181,8 @@ libbitcoin_util_a_SOURCES = \
 nodist_libbitcoin_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
-# clamd binary #
-clamd_LDADD = \
+# mercuryd binary #
+mercuryd_LDADD = \
   $(LIBBITCOIN_SERVER) \
   $(LIBBITCOIN_COMMON) \
   $(LIBBITCOIN_UTIL) \
@@ -191,20 +191,20 @@ clamd_LDADD = \
   $(LIBMEMENV)
 
 if ENABLE_WALLET
-clamd_LDADD += libbitcoin_wallet.a
+mercuryd_LDADD += libbitcoin_wallet.a
 endif
-clamd_SOURCES = \
+mercuryd_SOURCES = \
   bitcoind.cpp \
   rpcclient.cpp
 #
 
 if TARGET_WINDOWS
-clamd_SOURCES += bitcoind-res.rc
+mercuryd_SOURCES += bitcoind-res.rc
 endif
 
-clamd_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS)
-clamd_CPPFLAGS = $(BITCOIN_INCLUDES)
-clamd_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+mercuryd_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS)
+mercuryd_CPPFLAGS = $(BITCOIN_INCLUDES)
+mercuryd_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 
 CLEANFILES = leveldb/libleveldb.a leveldb/libmemenv.a *.gcda *.gcno

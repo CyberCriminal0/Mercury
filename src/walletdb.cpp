@@ -862,7 +862,7 @@ DBErrors CWalletDB::LoadWalletImport(CWallet* pwallet)
 void ThreadFlushWalletDB(const string& strFile)
 {
     // Make this thread recognisable as the wallet flushing thread
-    RenameThread("clam-wallet");
+    RenameThread("mercury-wallet");
 
     static bool fOneThread;
     if (fOneThread)

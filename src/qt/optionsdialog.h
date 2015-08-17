@@ -21,12 +21,12 @@ public:
 
     void setModel(OptionsModel *model);
     void setMapper();
-    void loadClamQuotes();
-    void saveClamQuotes();
+    void loadMercuryQuotes();
+    void saveMercuryQuotes();
 
 signals:
     void proxyIpValid(QValidatedLineEdit *object, bool fValid);
-    void onClamSpeechUpdated();
+    void onMercurySpeechUpdated();
 
 protected:
     bool eventFilter(QObject *object, QEvent *event);

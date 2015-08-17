@@ -3,22 +3,22 @@
     <name>AboutDialog</name>
     <message>
         <location filename="../forms/aboutdialog.ui" line="+14"/>
-        <source>About Clam</source>
-        <translation>О Clam</translation>
+        <source>About Mercury</source>
+        <translation>О Mercury</translation>
     </message>
     <message>
         <location line="+39"/>
-        <source>&lt;b&gt;Clam&lt;/b&gt; version</source>
-        <translation>&lt;b&gt;Clam&lt;/b&gt; версия</translation>
+        <source>&lt;b&gt;Mercury&lt;/b&gt; version</source>
+        <translation>&lt;b&gt;Mercury&lt;/b&gt; версия</translation>
     </message>
     <message>
         <location line="+41"/>
         <source>Copyright © 2009-2014 The Bitcoin developers
 Copyright © 2012-2014 The NovaCoin developers
-Copyright © 2014 The Clam developers</source>
+Copyright © 2014 The Mercury developers</source>
         <translation>Все права защищены © 2009-2014 Разработчики Bitcoin
 Все права защищены © 2012-2014 Разработчики NovaCoin
-Все права защищены © 2014 Разработчики Clam</translation>
+Все права защищены © 2014 Разработчики Mercury</translation>
     </message>
     <message>
         <location line="+15"/>
@@ -65,7 +65,7 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="-46"/>
-        <source>These are your Clam addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
+        <source>These are your Mercury addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
         <translation>Это Ваши адреса для получения платежей. Вы можете дать разные адреса отправителям, чтобы отслеживать, кто именно вам платит.</translation>
     </message>
     <message>
@@ -80,8 +80,8 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+11"/>
-        <source>Sign a message to prove you own a Clam address</source>
-        <translation>Подписать сообщение, чтобы доказать владение адресом Clam</translation>
+        <source>Sign a message to prove you own a Mercury address</source>
+        <translation>Подписать сообщение, чтобы доказать владение адресом Mercury</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -95,8 +95,8 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="-14"/>
-        <source>Verify a message to ensure it was signed with a specified Clam address</source>
-        <translation>Проверить сообщение, чтобы убедиться, что оно было подписано указанным адресом Clam</translation>
+        <source>Verify a message to ensure it was signed with a specified Mercury address</source>
+        <translation>Проверить сообщение, чтобы убедиться, что оно было подписано указанным адресом Mercury</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -263,7 +263,7 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="-58"/>
-        <source>Clam will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your coins from being stolen by malware infecting your computer.</source>
+        <source>Mercury will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your coins from being stolen by malware infecting your computer.</source>
         <translation>Сейчас программа закроется для завершения процесса шифрования. Помните, что шифрование вашего бумажника не может полностью защитить ваши монеты от кражи с помощью инфицирования вашего компьютера вредоносным ПО.</translation>
     </message>
     <message>
@@ -377,8 +377,8 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+6"/>
-        <source>Show information about Clam</source>
-        <translation>Показать информацию о Clam&apos;е</translation>
+        <source>Show information about Mercury</source>
+        <translation>Показать информацию о Mercury&apos;е</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -427,13 +427,13 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="-64"/>
-        <source>Send coins to a Clam address</source>
-        <translation>Отправить монеты на указанный адрес Clam</translation>
+        <source>Send coins to a Mercury address</source>
+        <translation>Отправить монеты на указанный адрес Mercury</translation>
     </message>
     <message>
         <location line="+47"/>
-        <source>Modify configuration options for Clam</source>
-        <translation>Изменить параметры конфигурации Clam</translation>
+        <source>Modify configuration options for Mercury</source>
+        <translation>Изменить параметры конфигурации Mercury</translation>
     </message>
     <message>
         <location line="+18"/>
@@ -472,8 +472,8 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="-202"/>
-        <source>Clam</source>
-        <translation>Clam</translation>
+        <source>Mercury</source>
+        <translation>Mercury</translation>
     </message>
     <message>
         <location line="+0"/>
@@ -482,8 +482,8 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+180"/>
-        <source>&amp;About Clam</source>
-        <translation>&amp;О Clam</translation>
+        <source>&amp;About Mercury</source>
+        <translation>&amp;О Mercury</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -539,12 +539,12 @@ This product includes software developed by the OpenSSL Project for use in the O
     <message>
         <location line="+0"/>
         <location line="+60"/>
-        <source>Clam client</source>
-        <translation>Clam клиент</translation>
+        <source>Mercury client</source>
+        <translation>Mercury клиент</translation>
     </message>
     <message numerus="yes">
         <location line="+75"/>
-        <source>%n active connection(s) to Clam network</source>
+        <source>%n active connection(s) to Mercury network</source>
         <translation><numerusform>%n активное соединение с сетью</numerusform><numerusform>%n активных соединений с сетью</numerusform><numerusform>%n активных соединений с сетью</numerusform></translation>
     </message>
     <message>
@@ -584,12 +584,12 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="-312"/>
-        <source>About Clam card</source>
-        <translation>О карте Clam</translation>
+        <source>About Mercury card</source>
+        <translation>О карте Mercury</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Show information about Clam card</source>
+        <source>Show information about Mercury card</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -669,8 +669,8 @@ Address: %4
     <message>
         <location line="-15"/>
         <location line="+15"/>
-        <source>URI can not be parsed! This can be caused by an invalid Clam address or malformed URI parameters.</source>
-        <translation>Не удалось обработать URI! Это может быть связано с неверным адресом Clam или неправильными параметрами URI.</translation>
+        <source>URI can not be parsed! This can be caused by an invalid Mercury address or malformed URI parameters.</source>
+        <translation>Не удалось обработать URI! Это может быть связано с неверным адресом Mercury или неправильными параметрами URI.</translation>
     </message>
     <message>
         <location line="+18"/>
@@ -729,8 +729,8 @@ Address: %4
     </message>
     <message>
         <location filename="../bitcoin.cpp" line="+109"/>
-        <source>A fatal error occurred. Clam can no longer continue safely and will quit.</source>
-        <translation>Произошла неисправимая ошибка. Clam не может безопасно продолжать работу и будет закрыт.</translation>
+        <source>A fatal error occurred. Mercury can no longer continue safely and will quit.</source>
+        <translation>Произошла неисправимая ошибка. Mercury не может безопасно продолжать работу и будет закрыт.</translation>
     </message>
 </context>
 <context>
@@ -1049,8 +1049,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="-5"/>
-        <source>The entered address &quot;%1&quot; is not a valid Clam address.</source>
-        <translation>Введённый адрес &quot;%1&quot; не является правильным Clam-адресом.</translation>
+        <source>The entered address &quot;%1&quot; is not a valid Mercury address.</source>
+        <translation>Введённый адрес &quot;%1&quot; не является правильным Mercury-адресом.</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -1068,8 +1068,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location filename="../guiutil.cpp" line="+420"/>
         <location line="+12"/>
-        <source>Clam-Qt</source>
-        <translation>Clam-Qt</translation>
+        <source>Mercury-Qt</source>
+        <translation>Mercury-Qt</translation>
     </message>
     <message>
         <location line="-12"/>
@@ -1141,13 +1141,13 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+31"/>
-        <source>Automatically start Clam after logging in to the system.</source>
-        <translation>Автоматически запускать Clam после входа в систему</translation>
+        <source>Automatically start Mercury after logging in to the system.</source>
+        <translation>Автоматически запускать Mercury после входа в систему</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>&amp;Start Clam on system login</source>
-        <translation>&amp;Запускать Clam при входе в систему</translation>
+        <source>&amp;Start Mercury on system login</source>
+        <translation>&amp;Запускать Mercury при входе в систему</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -1166,8 +1166,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+6"/>
-        <source>Automatically open the Clam client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Автоматически открыть порт для Clam-клиента на роутере. Работает только если Ваш роутер поддерживает UPnP, и данная функция включена.</translation>
+        <source>Automatically open the Mercury client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Автоматически открыть порт для Mercury-клиента на роутере. Работает только если Ваш роутер поддерживает UPnP, и данная функция включена.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1176,8 +1176,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+7"/>
-        <source>Connect to the Clam network through a SOCKS proxy (e.g. when connecting through Tor).</source>
-        <translation>Подключаться к сети Clam через прокси SOCKS (например, при подключении через Tor).</translation>
+        <source>Connect to the Mercury network through a SOCKS proxy (e.g. when connecting through Tor).</source>
+        <translation>Подключаться к сети Mercury через прокси SOCKS (например, при подключении через Tor).</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1251,8 +1251,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+13"/>
-        <source>The user interface language can be set here. This setting will take effect after restarting Clam.</source>
-        <translation>Здесь можно выбрать язык интерфейса. Настройки вступят в силу после перезапуска Clam.</translation>
+        <source>The user interface language can be set here. This setting will take effect after restarting Mercury.</source>
+        <translation>Здесь можно выбрать язык интерфейса. Настройки вступят в силу после перезапуска Mercury.</translation>
     </message>
     <message>
         <location line="+11"/>
@@ -1266,8 +1266,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+9"/>
-        <source>Whether to show Clam addresses in the transaction list or not.</source>
-        <translation>Показывать ли адреса Clam в списке транзакций.</translation>
+        <source>Whether to show Mercury addresses in the transaction list or not.</source>
+        <translation>Показывать ли адреса Mercury в списке транзакций.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1313,8 +1313,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="-9"/>
         <location line="+9"/>
-        <source>This setting will take effect after restarting Clam.</source>
-        <translation>Эта настройка вступит в силу после перезапуска Clam</translation>
+        <source>This setting will take effect after restarting Mercury.</source>
+        <translation>Эта настройка вступит в силу после перезапуска Mercury</translation>
     </message>
     <message>
         <location line="+29"/>
@@ -1332,8 +1332,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="+33"/>
         <location line="+231"/>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Clam network after a connection is established, but this process has not completed yet.</source>
-        <translation>Отображаемая информация может быть устаревшей. Ваш бумажник автоматически синхронизируется с сетью Clam после подключения, но этот процесс пока не завершён.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Mercury network after a connection is established, but this process has not completed yet.</source>
+        <translation>Отображаемая информация может быть устаревшей. Ваш бумажник автоматически синхронизируется с сетью Mercury после подключения, но этот процесс пока не завершён.</translation>
     </message>
     <message>
         <location line="-160"/>
@@ -1548,8 +1548,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+7"/>
-        <source>Show the Clam-Qt help message to get a list with possible Clam command-line options.</source>
-        <translation>Показать помощь по Clam-Qt, чтобы получить список доступных параметров командной строки.</translation>
+        <source>Show the Mercury-Qt help message to get a list with possible Mercury command-line options.</source>
+        <translation>Показать помощь по Mercury-Qt, чтобы получить список доступных параметров командной строки.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1568,13 +1568,13 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="-104"/>
-        <source>Clam - Debug window</source>
-        <translation>Clam - Окно отладки</translation>
+        <source>Mercury - Debug window</source>
+        <translation>Mercury - Окно отладки</translation>
     </message>
     <message>
         <location line="+25"/>
-        <source>Clam Core</source>
-        <translation>Ядро Clam</translation>
+        <source>Mercury Core</source>
+        <translation>Ядро Mercury</translation>
     </message>
     <message>
         <location line="+279"/>
@@ -1583,8 +1583,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+7"/>
-        <source>Open the Clam debug log file from the current data directory. This can take a few seconds for large log files.</source>
-        <translation>Открыть отладочный лог-файл Clam из текущего каталога данных. Это может занять несколько секунд для больших лог-файлов.</translation>
+        <source>Open the Mercury debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <translation>Открыть отладочный лог-файл Mercury из текущего каталога данных. Это может занять несколько секунд для больших лог-файлов.</translation>
     </message>
     <message>
         <location line="+102"/>
@@ -1593,8 +1593,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location filename="../rpcconsole.cpp" line="-33"/>
-        <source>Welcome to the Clam RPC console.</source>
-        <translation>Добро пожаловать в RPC-консоль Clam.</translation>
+        <source>Welcome to the Mercury RPC console.</source>
+        <translation>Добро пожаловать в RPC-консоль Mercury.</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1752,8 +1752,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location filename="../sendcoinsdialog.cpp" line="-173"/>
-        <source>Enter a Clam address (e.g. B8gZqgY4r2RoEdqYk3QsAqFckyf9pRHN6i)</source>
-        <translation>Введите Clam-адрес (например B8gZqgY4r2RoEdqYk3QsAqFckyf9pRHN6i)</translation>
+        <source>Enter a Mercury address (e.g. B8gZqgY4r2RoEdqYk3QsAqFckyf9pRHN6i)</source>
+        <translation>Введите Mercury-адрес (например B8gZqgY4r2RoEdqYk3QsAqFckyf9pRHN6i)</translation>
     </message>
     <message>
         <location line="+15"/>
@@ -1852,7 +1852,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+251"/>
-        <source>WARNING: Invalid Clam address</source>
+        <source>WARNING: Invalid Mercury address</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1926,8 +1926,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location filename="../sendcoinsentry.cpp" line="+1"/>
-        <source>Enter a Clam address (e.g. B8gZqgY4r2RoEdqYk3QsAqFckyf9pRHN6i)</source>
-        <translation>Введите Clam-адрес (например B8gZqgY4r2RoEdqYk3QsAqFckyf9pRHN6i)</translation>
+        <source>Enter a Mercury address (e.g. B8gZqgY4r2RoEdqYk3QsAqFckyf9pRHN6i)</source>
+        <translation>Введите Mercury-адрес (например B8gZqgY4r2RoEdqYk3QsAqFckyf9pRHN6i)</translation>
     </message>
 </context>
 <context>
@@ -1987,8 +1987,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+21"/>
-        <source>Sign the message to prove you own this Clam address</source>
-        <translation>Подписать сообщение, чтобы доказать владение адресом Clam</translation>
+        <source>Sign the message to prove you own this Mercury address</source>
+        <translation>Подписать сообщение, чтобы доказать владение адресом Mercury</translation>
     </message>
     <message>
         <location line="+17"/>
@@ -2019,8 +2019,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+40"/>
-        <source>Verify the message to ensure it was signed with the specified Clam address</source>
-        <translation>Проверить сообщение, чтобы убедиться, что оно было подписано указанным адресом Clam</translation>
+        <source>Verify the message to ensure it was signed with the specified Mercury address</source>
+        <translation>Проверить сообщение, чтобы убедиться, что оно было подписано указанным адресом Mercury</translation>
     </message>
     <message>
         <location line="+17"/>
@@ -2030,8 +2030,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location filename="../signverifymessagedialog.cpp" line="+27"/>
         <location line="+3"/>
-        <source>Enter a Clam address (e.g. B8gZqgY4r2RoEdqYk3QsAqFckyf9pRHN6i)</source>
-        <translation>Введите адрес Clam (напр. B8gZqgY4r2RoEdqYk3QsAqFckyf9pRHN6i)</translation>
+        <source>Enter a Mercury address (e.g. B8gZqgY4r2RoEdqYk3QsAqFckyf9pRHN6i)</source>
+        <translation>Введите адрес Mercury (напр. B8gZqgY4r2RoEdqYk3QsAqFckyf9pRHN6i)</translation>
     </message>
     <message>
         <location line="-2"/>
@@ -2040,8 +2040,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+3"/>
-        <source>Enter Clam signature</source>
-        <translation>Введите подпись Clam</translation>
+        <source>Enter Mercury signature</source>
+        <translation>Введите подпись Mercury</translation>
     </message>
     <message>
         <location line="+82"/>
@@ -2616,7 +2616,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <name>bitcoin-core</name>
     <message>
         <location filename="../bitcoinstrings.cpp" line="+33"/>
-        <source>Clam version</source>
+        <source>Mercury version</source>
         <translation>Версия</translation>
     </message>
     <message>
@@ -2626,8 +2626,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+1"/>
-        <source>Send command to -server or clamd</source>
-        <translation>Отправить команду на -server или clamd</translation>
+        <source>Send command to -server or mercuryd</source>
+        <translation>Отправить команду на -server или mercuryd</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -2647,13 +2647,13 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+2"/>
-        <source>Specify configuration file (default: clam.conf)</source>
-        <translation>Указать конфигурационный файл (по умолчанию: clam.conf)</translation>
+        <source>Specify configuration file (default: mercury.conf)</source>
+        <translation>Указать конфигурационный файл (по умолчанию: mercury.conf)</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Specify pid file (default: clamd.pid)</source>
-        <translation>Указать pid-файл (по умолчанию: clamd.pid)</translation>
+        <source>Specify pid file (default: mercuryd.pid)</source>
+        <translation>Указать pid-файл (по умолчанию: mercuryd.pid)</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -2802,8 +2802,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+61"/>
-        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong Clam will not work properly.</source>
-        <translation>Внимание: убедитесь, что дата и время на Вашем компьютере выставлены верно. Если Ваши часы идут неправильно, Clam будет работать некорректно.</translation>
+        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong Mercury will not work properly.</source>
+        <translation>Внимание: убедитесь, что дата и время на Вашем компьютере выставлены верно. Если Ваши часы идут неправильно, Mercury будет работать некорректно.</translation>
     </message>
     <message>
         <location line="-31"/>
@@ -2992,13 +2992,13 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <source>%s, you must set a rpcpassword in the configuration file:
  %s
 It is recommended you use the following random password:
-rpcuser=clamrpc
+rpcuser=mercuryrpc
 rpcpassword=%s
 (you do not need to remember this password)
 The username and password MUST NOT be the same.
 If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
-for example: alertnotify=echo %%s | mail -s &quot;Clam Alert&quot; admin@foo.com
+for example: alertnotify=echo %%s | mail -s &quot;Mercury Alert&quot; admin@foo.com
 </source>
         <translation type="unfinished"/>
     </message>
@@ -3124,13 +3124,13 @@ for example: alertnotify=echo %%s | mail -s &quot;Clam Alert&quot; admin@foo.com
     </message>
     <message>
         <location line="+1"/>
-        <source>Cannot obtain a lock on data directory %s.  Clam is probably already running.</source>
+        <source>Cannot obtain a lock on data directory %s.  Mercury is probably already running.</source>
         <translation>Невозможно установить блокировку на рабочую директорию %s.  Возможно, бумажник уже запущен.</translation>
     </message>
     <message>
         <location line="-98"/>
-        <source>Clam</source>
-        <translation>Clam</translation>
+        <source>Mercury</source>
+        <translation>Mercury</translation>
     </message>
     <message>
         <location line="+140"/>
@@ -3164,13 +3164,13 @@ for example: alertnotify=echo %%s | mail -s &quot;Clam Alert&quot; admin@foo.com
     </message>
     <message>
         <location line="+4"/>
-        <source>Error loading wallet.dat: Wallet requires newer version of Clam</source>
-        <translation>Ошибка загрузки wallet.dat: бумажник требует более новую версию Clam</translation>
+        <source>Error loading wallet.dat: Wallet requires newer version of Mercury</source>
+        <translation>Ошибка загрузки wallet.dat: бумажник требует более новую версию Mercury</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Wallet needed to be rewritten: restart Clam to complete</source>
-        <translation>Необходимо перезаписать бумажник, перезапустите Clam для завершения операции</translation>
+        <source>Wallet needed to be rewritten: restart Mercury to complete</source>
+        <translation>Необходимо перезаписать бумажник, перезапустите Mercury для завершения операции</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -3239,8 +3239,8 @@ for example: alertnotify=echo %%s | mail -s &quot;Clam Alert&quot; admin@foo.com
     </message>
     <message>
         <location line="+122"/>
-        <source>Unable to bind to %s on this computer. Clam is probably already running.</source>
-        <translation>Невозможно привязаться к %s на этом компьютере.  Возможно, Clam уже работает.</translation>
+        <source>Unable to bind to %s on this computer. Mercury is probably already running.</source>
+        <translation>Невозможно привязаться к %s на этом компьютере.  Возможно, Mercury уже работает.</translation>
     </message>
     <message>
         <location line="-97"/>

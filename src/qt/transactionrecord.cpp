@@ -32,10 +32,10 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet *
     uint256 hash = wtx.GetHash(), hashPrev = 0;
     std::map<std::string, std::string> mapValue = wtx.mapValue;
 
-    std::string clamspeech = "";
+    std::string mercurypeech = "";
     if (!wtx.strCLAMSpeech.empty())
     {
-        clamspeech = wtx.strCLAMSpeech;
+        mercurypeech = wtx.strCLAMSpeech;
     }
 
 
@@ -50,7 +50,7 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet *
             {
                 TransactionRecord sub(hash, nTime);
                 CTxDestination address;
-                sub.clamspeech = clamspeech;
+                sub.mercurypeech = mercurypeech;
                 sub.idx = parts.size(); // sequence number
                 sub.credit = txout.nValue;
                 if (ExtractDestination(txout.scriptPubKey, address) && IsMine(*wallet, address))
@@ -102,7 +102,7 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet *
             int64_t nChange = wtx.GetChange();
 
             parts.append(TransactionRecord(hash, nTime, TransactionRecord::SendToSelf, "",
-                             -(nDebit - nChange), nCredit - nChange, clamspeech));
+                             -(nDebit - nChange), nCredit - nChange, mercurypeech));
         }
         else if (fAllFromMe)
         {
@@ -116,7 +116,7 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet *
                 const CTxOut& txout = wtx.vout[nOut];
                 TransactionRecord sub(hash, nTime);
                 sub.idx = parts.size();
-                sub.clamspeech = clamspeech;
+                sub.mercurypeech = mercurypeech;
 
                 if(wallet->IsMine(txout))
                 {
@@ -156,7 +156,7 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet *
             //
             // Mixed debit transaction, can't break down payees
             //
-            parts.append(TransactionRecord(hash, nTime, TransactionRecord::Other, "", nNet, 0, clamspeech));
+            parts.append(TransactionRecord(hash, nTime, TransactionRecord::Other, "", nNet, 0, mercurypeech));
         }
     }
 

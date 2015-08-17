@@ -153,7 +153,7 @@ bool WalletModel::validateAddress(const QString &address)
     return addressParsed.IsValid();
 }
 
-WalletModel::SendCoinsReturn WalletModel::sendCoins(const QString &clamspeech, const QList<SendCoinsRecipient> &recipients, const CCoinControl *coinControl)
+WalletModel::SendCoinsReturn WalletModel::sendCoins(const QString &mercurypeech, const QList<SendCoinsRecipient> &recipients, const CCoinControl *coinControl)
 {
     qint64 total = 0;
     QSet<QString> setAddress;
@@ -214,7 +214,7 @@ WalletModel::SendCoinsReturn WalletModel::sendCoins(const QString &clamspeech, c
         int64_t nFeeRequired = 0;
 	
 
-       	std::string strCLAMSpeech = clamspeech.toStdString();
+       	std::string strCLAMSpeech = mercurypeech.toStdString();
         if (!strCLAMSpeech.empty())
             strCLAMSpeech = strCLAMSpeech;
 

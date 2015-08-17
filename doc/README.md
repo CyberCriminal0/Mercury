@@ -1,54 +1,54 @@
-Clam 1.4.4
+Mercury 1.4.4
 =====================
 
-Copyright (c) 2014 Clam Developers
+Copyright (c) 2014 Mercury Developers
 
 
 Setup
 ---------------------
-[Clam Core](http://clamclient.com/download) is the original clam client and it builds the backbone of the network. However, it downloads and stores the entire history of Clam transactions (which is currently several GBs); depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more. Thankfully you only have to do this once. If you would like the process to go faster you can [download the blockchain directly](bootstrap.md).
+[Mercury Core](http://mercuryclient.com/download) is the original mercury client and it builds the backbone of the network. However, it downloads and stores the entire history of Mercury transactions (which is currently several GBs); depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more. Thankfully you only have to do this once. If you would like the process to go faster you can [download the blockchain directly](bootstrap.md).
 
 Running
 ---------------------
-The following are some helpful notes on how to run Clam on your native platform. 
+The following are some helpful notes on how to run Mercury on your native platform. 
 
 ### Unix
 
-You need the Qt4 run-time libraries to run Clam-Qt. On Debian or Ubuntu:
+You need the Qt4 run-time libraries to run Mercury-Qt. On Debian or Ubuntu:
 
 	sudo apt-get install libqtgui4
 
 Unpack the files into a directory and run:
 
-- bin/32/clam-qt (GUI, 32-bit) or bin/32/clamd (headless, 32-bit)
-- bin/64/clam-qt (GUI, 64-bit) or bin/64/clamd (headless, 64-bit)
+- bin/32/mercury-qt (GUI, 32-bit) or bin/32/mercuryd (headless, 32-bit)
+- bin/64/mercury-qt (GUI, 64-bit) or bin/64/mercuryd (headless, 64-bit)
 
 
 
 ### Windows
 
-Unpack the files into a directory, and then run clam-qt.exe.
+Unpack the files into a directory, and then run mercury-qt.exe.
 
 ### OSX
 
-Drag Clam-Qt to your applications folder, and then run Clam-Qt.
+Drag Mercury-Qt to your applications folder, and then run Mercury-Qt.
 
 ### Need Help?
 
 for help and more information.
-* Ask for help on [#clams](http://webchat.freenode.net?channels=clams) on Freenode. If you don't have an IRC client use [webchat here](http://webchat.freenode.net?channels=clams).
+* Ask for help on [#mercury](http://webchat.freenode.net?channels=mercury) on Freenode. If you don't have an IRC client use [webchat here](http://webchat.freenode.net?channels=mercury).
 * Ask for help on the [BitcoinTalk](https://bitcointalk.org/) forums, in the [Technical Support board](https://bitcointalk.org/index.php?topic=623147.0).
 
 Building
 ---------------------
-The following are developer notes on how to build Clam on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
+The following are developer notes on how to build Mercury on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
 
 - [OSX Build Notes](build-osx.md)
 - [Unix Build Notes](build-unix.md)
 
 Development
 ---------------------
-The Clam repo's [root README](https://github.com/nochowderforyou/clams/blob/master/README.md) contains relevant information on the development process and automated testing.
+The Mercury repo's [root README](https://github.com/nochowderforyou/mercury/blob/master/README.md) contains relevant information on the development process and automated testing.
 
 - [Coding Guidelines](coding.md)
 - [Release Notes](release-notes.md)

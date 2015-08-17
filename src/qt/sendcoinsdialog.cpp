@@ -16,7 +16,7 @@
 #include "coincontrol.h"
 #include "coincontroldialog.h"
 
-#include "clamspeech.h"
+#include "mercurypeech.h"
 
 #include <QDebug>
 #include <QString>
@@ -126,7 +126,7 @@ void SendCoinsDialog::on_sendButton_clicked()
     if(!model)
         return;
 
-    QString clamspeech = ui->clamQuotes->currentText();
+    QString mercurypeech = ui->mercuryQuotes->currentText();
 
     for(int i = 0; i < ui->entries->count(); ++i)
     {
@@ -180,9 +180,9 @@ void SendCoinsDialog::on_sendButton_clicked()
     WalletModel::SendCoinsReturn sendstatus;
 
     if (!model->getOptionsModel() || !model->getOptionsModel()->getCoinControlFeatures())
-        sendstatus = model->sendCoins(clamspeech, recipients);
+        sendstatus = model->sendCoins(mercurypeech, recipients);
     else
-        sendstatus = model->sendCoins(clamspeech, recipients, CoinControlDialog::coinControl);
+        sendstatus = model->sendCoins(mercurypeech, recipients, CoinControlDialog::coinControl);
 
     switch(sendstatus.status)
     {
@@ -233,28 +233,28 @@ void SendCoinsDialog::on_sendButton_clicked()
     fNewRecipientAllowed = true;
 }
 
-void SendCoinsDialog::clamSpeechIndexChanged(const int &index)
+void SendCoinsDialog::mercurySpeechIndexChanged(const int &index)
 {
-    if ( index >= clamSpeechQuoteCount )
+    if ( index >= mercurySpeechQuoteCount )
     {
         qDebug() << "New CLAMSpeech quote added at" << index;
 
         // Add quote
-        quoteList.push_back( ui->clamQuotes->itemText(index).toStdString() );
+        quoteList.push_back( ui->mercuryQuotes->itemText(index).toStdString() );
     }
 
-    clamSpeechQuoteCount = ui->clamQuotes->count();
-    nClamSpeechIndex = index;
+    mercurySpeechQuoteCount = ui->mercuryQuotes->count();
+    nMercurySpeechIndex = index;
 
-    qDebug() << "saving nClamSpeechIndex =" << index;
+    qDebug() << "saving nMercurySpeechIndex =" << index;
     // Save to QSettings
     QSettings settings;
-    settings.setValue( "nClamSpeechIndex", nClamSpeechIndex );
+    settings.setValue( "nMercurySpeechIndex", nMercurySpeechIndex );
 }
 
 void SendCoinsDialog::clear()
 {
-    ui->clamQuotes->clear();
+    ui->mercuryQuotes->clear();
     // Remove 
     //entries until only one left
     while(ui->entries->count())
@@ -323,8 +323,8 @@ void SendCoinsDialog::removeEntry(SendCoinsEntry* entry)
 
 QWidget *SendCoinsDialog::setupTabChain(QWidget *prev)
 {
-    QWidget::setTabOrder(prev, ui->clamQuotes);
-    prev = ui->clamQuotes;
+    QWidget::setTabOrder(prev, ui->mercuryQuotes);
+    prev = ui->mercuryQuotes;
 
     for(int i = 0; i < ui->entries->count(); ++i)
     {
@@ -390,56 +390,56 @@ void SendCoinsDialog::setBalance(qint64 balance, qint64 stake, qint64 unconfirme
     }
 }
 
-void SendCoinsDialog::loadClamSpeech()
+void SendCoinsDialog::loadMercurySpeech()
 {
-    if ( !fUseClamSpeech )
+    if ( !fUseMercurySpeech )
         return;
 
     // disconnect widget change signal to stop clashing
-    disconnect( ui->clamQuotes, SIGNAL(currentIndexChanged(int)), this, SLOT(clamSpeechIndexChanged(int)) );
+    disconnect( ui->mercuryQuotes, SIGNAL(currentIndexChanged(int)), this, SLOT(mercurySpeechIndexChanged(int)) );
 
-    // Load quotes from clamspeech.h
-    ui->clamQuotes->clear();
-    for ( ulong i = 0; i < clamSpeech.size(); i++ )
-        ui->clamQuotes->addItem( QString::fromStdString( clamSpeech.at(i) ) );
+    // Load quotes from mercurypeech.h
+    ui->mercuryQuotes->clear();
+    for ( ulong i = 0; i < mercurySpeech.size(); i++ )
+        ui->mercuryQuotes->addItem( QString::fromStdString( mercurySpeech.at(i) ) );
 
     // Hold the index count to detect appending new quotes
-    clamSpeechQuoteCount = ui->clamQuotes->count();
+    mercurySpeechQuoteCount = ui->mercuryQuotes->count();
 
-    if ( !clamSpeechQuoteCount )
+    if ( !mercurySpeechQuoteCount )
         return;
 
     // Select a random index based on current time, if random option set
-    if ( fUseClamSpeechRandom && clamSpeechQuoteCount )
+    if ( fUseMercurySpeechRandom && mercurySpeechQuoteCount )
     {
         qDebug() << "Random quote selected";
 
         qsrand( (QDateTime().toTime_t() * 1000) );
-        ui->clamQuotes->setCurrentIndex( qrand() % ui->clamQuotes->count() );
+        ui->mercuryQuotes->setCurrentIndex( qrand() % ui->mercuryQuotes->count() );
     }
     else // Fixed chosen quote
     {
         // Support out of bounds removal with already set index
-        if ( nClamSpeechIndex >= clamSpeechQuoteCount )
-            nClamSpeechIndex = clamSpeechQuoteCount -1;
+        if ( nMercurySpeechIndex >= mercurySpeechQuoteCount )
+            nMercurySpeechIndex = mercurySpeechQuoteCount -1;
 
-        ui->clamQuotes->setCurrentIndex( nClamSpeechIndex );
+        ui->mercuryQuotes->setCurrentIndex( nMercurySpeechIndex );
     }
 
     // Print debug info
-    qDebug() << clamSpeechQuoteCount << "CLAMSpeech quotes parsed.";
-    qDebug() << "fClamSpeechRandom =" << fUseClamSpeechRandom;
-    qDebug() << "nClamSpeechIndex =" << nClamSpeechIndex;
-    qDebug() << "CLAMSpeech selected index" << ui->clamQuotes->currentIndex();
+    qDebug() << mercurySpeechQuoteCount << "CLAMSpeech quotes parsed.";
+    qDebug() << "fMercurySpeechRandom =" << fUseMercurySpeechRandom;
+    qDebug() << "nMercurySpeechIndex =" << nMercurySpeechIndex;
+    qDebug() << "CLAMSpeech selected index" << ui->mercuryQuotes->currentIndex();
 
-    // setup clamspeech widget change signal
-    connect( ui->clamQuotes, SIGNAL(currentIndexChanged(int)), this, SLOT(clamSpeechIndexChanged(int)) );
+    // setup mercurypeech widget change signal
+    connect( ui->mercuryQuotes, SIGNAL(currentIndexChanged(int)), this, SLOT(mercurySpeechIndexChanged(int)) );
 }
 
 void SendCoinsDialog::uiReady()
 {
     qDebug() << "SendCoinsDialog::uiReady()";
-    this->loadClamSpeech();
+    this->loadMercurySpeech();
 }
 
 void SendCoinsDialog::updateDisplayUnit()
@@ -542,7 +542,7 @@ void SendCoinsDialog::coinControlChangeEdited(const QString & text)
         else if (!CBitcoinAddress(text.toStdString()).IsValid())
         {
             ui->labelCoinControlChangeLabel->setStyleSheet("QLabel{color:red;}");
-            ui->labelCoinControlChangeLabel->setText(tr("WARNING: Invalid Clam address"));
+            ui->labelCoinControlChangeLabel->setText(tr("WARNING: Invalid Mercury address"));
         }
         else
         {

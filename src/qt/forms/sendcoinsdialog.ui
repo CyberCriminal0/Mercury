@@ -719,7 +719,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QComboBox" name="clamQuotes">
+      <widget class="QComboBox" name="mercuryQuotes">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
          <horstretch>0</horstretch>

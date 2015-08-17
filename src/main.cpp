@@ -83,7 +83,7 @@ map<uint256, set<uint256> > mapOrphanTransactionsByPrev;
 // Constant stuff for coinbase transactions we create:
 CScript COINBASE_FLAGS;
  
-const string strMessageMagic = "Clam Signed Message:\n";
+const string strMessageMagic = "Mercury Signed Message:\n";
  
 
 extern enum Checkpoints::CPMode CheckpointsMode;
@@ -1023,7 +1023,7 @@ int64_t GetProofOfStakeReward(const CBlockIndex* pindex, int64_t nCoinAge, int64
 
     } else {
 
-        const int64_t randSpan = 2147483647; //Big Number, its unclear but possable correlates to the amount of clams that have ever existed.
+        const int64_t randSpan = 2147483647; //Big Number, its unclear but possable correlates to the amount of mercury that have ever existed.
         const int64_t maxReward = 1000 * COIN; //1000 CLAMS
         const int64_t minReward = 10000000; //.1 CLAM
         double multFactor = 3000; //Exponential Curve Factor
@@ -2936,7 +2936,7 @@ struct CImportingNow
 
 void ThreadImport(std::vector<boost::filesystem::path> vImportFiles)
 {
-    RenameThread("Clam-loadblk");
+    RenameThread("Mercury-loadblk");
 
     CImportingNow imp;
 

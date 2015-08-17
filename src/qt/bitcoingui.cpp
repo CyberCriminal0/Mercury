@@ -90,7 +90,7 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     updateStyle();
 
     resize(850+95, 550);
-    setWindowTitle(tr("Clam Wallet"));
+    setWindowTitle(tr("Mercury Wallet"));
 #ifndef Q_OS_MAC
     qApp->setWindowIcon(QIcon(":icons/bitcoin"));
     setWindowIcon(QIcon(":icons/bitcoin"));
@@ -181,7 +181,7 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     progressBar->setAlignment(Qt::AlignCenter);
     progressBar->setVisible(false);
 
-//    if (!fUseClamTheme)
+//    if (!fUseMercuryTheme)
 //    {
 //        // Override style sheet for progress bar for styles that have a segmented progress bar,
 //        // as they make the text unreadable (workaround for issue #1071)
@@ -238,7 +238,7 @@ void BitcoinGUI::createActions()
     receiveCoinsAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_2));
 
     sendCoinsAction = new QAction(QIcon(":/icons/send"), tr("&Send"), tabGroup);
-    sendCoinsAction->setToolTip(tr("Send coins to a Clam address"));
+    sendCoinsAction->setToolTip(tr("Send coins to a Mercury address"));
     sendCoinsAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_3));
 
     historyAction = new QAction(QIcon(":/icons/history"), tr("&Transactions"), tabGroup);
@@ -250,7 +250,7 @@ void BitcoinGUI::createActions()
     addressBookAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_5));
 
     optionsAction = new QAction(QIcon(":/icons/options"), tr("&Options"), tabGroup);
-    optionsAction->setToolTip(tr("Modify configuration options for Clam"));
+    optionsAction->setToolTip(tr("Modify configuration options for Mercury"));
     optionsAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_6));
 
     rpcConsoleAction = new QAction(QIcon(":/icons/debugwindow"), tr("&Console"), tabGroup);
@@ -271,8 +271,8 @@ void BitcoinGUI::createActions()
     quitAction->setToolTip(tr("Quit application"));
     quitAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_Q));
     quitAction->setMenuRole(QAction::QuitRole);
-    aboutAction = new QAction(tr("&About Clam"), this);
-    aboutAction->setToolTip(tr("Show information about Clam"));
+    aboutAction = new QAction(tr("&About Mercury"), this);
+    aboutAction->setToolTip(tr("Show information about Mercury"));
     aboutAction->setMenuRole(QAction::AboutRole);
     aboutQtAction = new QAction(tr("About &Qt"), this);
     aboutQtAction->setToolTip(tr("Show information about Qt"));
@@ -420,7 +420,7 @@ void BitcoinGUI::setClientModel(ClientModel *clientModel)
 #endif
             if(trayIcon)
             {
-                trayIcon->setToolTip(tr("Clam client") + QString(" ") + tr("[testnet]"));
+                trayIcon->setToolTip(tr("Mercury client") + QString(" ") + tr("[testnet]"));
                 trayIcon->setIcon(QIcon(":/icons/toolbar_testnet"));
                 toggleHideAction->setIcon(QIcon(":/icons/toolbar_testnet"));
             }
@@ -493,7 +493,7 @@ void BitcoinGUI::createTrayIcon()
     trayIcon = new QSystemTrayIcon(this);
     trayIconMenu = new QMenu(this);
     trayIcon->setContextMenu(trayIconMenu);
-    trayIcon->setToolTip(tr("Clam client"));
+    trayIcon->setToolTip(tr("Mercury client"));
     trayIcon->setIcon(QIcon(":/icons/toolbar"));
     connect(trayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)),
             this, SLOT(trayIconActivated(QSystemTrayIcon::ActivationReason)));
@@ -560,7 +560,7 @@ void BitcoinGUI::setNumConnections(int count)
     default: icon = ":/icons/connect_4"; break;
     }
     labelConnectionsIcon->setPixmap(QIcon(icon).pixmap(STATUSBAR_ICONSIZE,STATUSBAR_ICONSIZE));
-    labelConnectionsIcon->setToolTip(tr("%n active connection(s) to Clam network", "", count));
+    labelConnectionsIcon->setToolTip(tr("%n active connection(s) to Mercury network", "", count));
 }
 
 void BitcoinGUI::setNumBlocks(int count)
@@ -655,7 +655,7 @@ void BitcoinGUI::setNumBlocks(int count)
 
 void BitcoinGUI::message(const QString &title, const QString &message, bool modal, unsigned int style)
 {
-    QString strTitle = tr("Clam") + " - ";
+    QString strTitle = tr("Mercury") + " - ";
     // Default to information icon
     int nMBoxIcon = QMessageBox::Information;
     int nNotifyIcon = Notificator::Information;
@@ -764,7 +764,7 @@ void BitcoinGUI::incomingTransaction(const QModelIndex & parent, int start, int 
                         .data().toString();
         QString address = ttm->index(start, TransactionTableModel::ToAddress, parent)
                         .data().toString();
-        QString clamspeech = ttm->index(start, TransactionTableModel::CLAMSpeech, parent)
+        QString mercurypeech = ttm->index(start, TransactionTableModel::CLAMSpeech, parent)
                         .data().toString();
         QIcon icon = qvariant_cast<QIcon>(ttm->index(start,
                             TransactionTableModel::ToAddress, parent)
@@ -781,7 +781,7 @@ void BitcoinGUI::incomingTransaction(const QModelIndex & parent, int start, int 
                               .arg(date)
                               .arg(BitcoinUnits::formatWithUnit(walletModel->getOptionsModel()->getDisplayUnit(), amount, true))
                               .arg(type)
-                              .arg(address + (clamspeech.length() > 0 ? ("\n" + clamspeech) : "")), icon);
+                              .arg(address + (mercurypeech.length() > 0 ? ("\n" + mercurypeech) : "")), icon);
     }
 }
 
@@ -837,8 +837,8 @@ void BitcoinGUI::gotoOptionsPage()
         optionsPage->setModel(clientModel->getOptionsModel());
         centralStackedWidget->addWidget(optionsPage);
 
-        // sync clamspeech editor with the selector in SendCoinsDialog
-        connect( optionsPage, SIGNAL(onClamSpeechUpdated()), this, SLOT(uiReady()) );
+        // sync mercurypeech editor with the selector in SendCoinsDialog
+        connect( optionsPage, SIGNAL(onMercurySpeechUpdated()), this, SLOT(uiReady()) );
     }
 
     optionsAction->setChecked(true);
@@ -896,7 +896,7 @@ void BitcoinGUI::dropEvent(QDropEvent *event)
         if (nValidUrisFound)
             gotoSendCoinsPage();
         else
-            notificator->notify(Notificator::Warning, tr("URI handling"), tr("URI can not be parsed! This can be caused by an invalid Clam address or malformed URI parameters."));
+            notificator->notify(Notificator::Warning, tr("URI handling"), tr("URI can not be parsed! This can be caused by an invalid Mercury address or malformed URI parameters."));
     }
 
     event->acceptProposedAction();
@@ -923,7 +923,7 @@ void BitcoinGUI::handleURI(QString strURI)
         gotoSendCoinsPage();
     }
     else
-        notificator->notify(Notificator::Warning, tr("URI handling"), tr("URI can not be parsed! This can be caused by an invalid Clam address or malformed URI parameters."));
+        notificator->notify(Notificator::Warning, tr("URI handling"), tr("URI can not be parsed! This can be caused by an invalid Mercury address or malformed URI parameters."));
 }
 
 void BitcoinGUI::uiReady()
@@ -1140,7 +1140,7 @@ void BitcoinGUI::updateWeight()
 //    if ( fClientsWithNewerVersion > 2 )
 //    {
 //        labelUpdateIcon->setPixmap(QIcon(":/icons/update_notify").pixmap(STATUSBAR_ICONSIZE,STATUSBAR_ICONSIZE));
-//        labelUpdateIcon->setToolTip(tr("A new version is available! Visit http://www.clamclient.com for details."));
+//        labelUpdateIcon->setToolTip(tr("A new version is available! Visit http://www.mercuryclient.com for details."));
 //    }
 //}
 
@@ -1216,7 +1216,7 @@ void BitcoinGUI::showMiscMenu()
 void BitcoinGUI::updateStyle()
 {
     // check if custom styles are enabled
-    if ( !fUseClamTheme )
+    if ( !fUseMercuryTheme )
         return;
 
     QString styleSheet;

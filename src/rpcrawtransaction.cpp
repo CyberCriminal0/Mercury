@@ -55,7 +55,7 @@ void TxToJSON(const CTransaction& tx, const uint256 hashBlock, Object& entry)
     entry.push_back(Pair("locktime", (int64_t)tx.nLockTime));
     if (tx.nVersion > CTransaction::LEGACY_VERSION_1)
     {
-      entry.push_back(Pair("clam-speech", tx.strCLAMSpeech));
+      entry.push_back(Pair("mercury-speech", tx.strCLAMSpeech));
     }
     Array vin;
     BOOST_FOREACH(const CTxIn& txin, tx.vin)
@@ -176,7 +176,7 @@ Value listunspent(const Array& params, bool fHelp)
         {
             CBitcoinAddress address(input.get_str());
             if (!address.IsValid())
-                throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, string("Invalid Clam address: ")+input.get_str());
+                throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, string("Invalid Mercury address: ")+input.get_str());
            setAddress.insert(address);
         }
     }
@@ -257,11 +257,11 @@ Value createrawtransaction(const Array& params, bool fHelp)
 
     CTransaction rawTx;
 
-    // set clamSpeech when creating a raw transaction
+    // set mercurySpeech when creating a raw transaction
     if (params.size() == 3)
         rawTx.strCLAMSpeech = params[2].get_str();
-    else if (mapArgs["-clamspeech"] != "off")
-        rawTx.strCLAMSpeech = GetDefaultClamSpeech();
+    else if (mapArgs["-mercurypeech"] != "off")
+        rawTx.strCLAMSpeech = GetDefaultMercurySpeech();
 
     if (rawTx.strCLAMSpeech.length() > MAX_TX_COMMENT_LEN)
         rawTx.strCLAMSpeech.resize(MAX_TX_COMMENT_LEN);
@@ -293,7 +293,7 @@ Value createrawtransaction(const Array& params, bool fHelp)
     {
         CBitcoinAddress address(s.name_);
         if (!address.IsValid())
-            throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, string("Invalid Clam address: ")+s.name_);
+            throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, string("Invalid Mercury address: ")+s.name_);
 
         setAddress.insert(address);
 

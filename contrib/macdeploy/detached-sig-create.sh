@@ -2,7 +2,7 @@
 set -e
 
 ROOTDIR=dist
-BUNDLE=${ROOTDIR}/Clam-Qt.app
+BUNDLE=${ROOTDIR}/Mercury-Qt.app
 CODESIGN=codesign
 TEMPDIR=sign.temp
 TEMPLIST=${TEMPDIR}/signatures.txt

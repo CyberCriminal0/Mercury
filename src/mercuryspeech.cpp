@@ -1,9 +1,9 @@
-#include <clamspeech.h>
+#include <mercurypeech.h>
 
 using namespace std;
 
-vector<string> clamSpeechList;
-vector<string> clamSpeech;
+vector<string> mercurySpeechList;
+vector<string> mercurySpeech;
 vector<string> quoteList;
 
 void CSLoad() {
@@ -816,5 +816,5 @@ void CSLoad() {
     unsigned int size = sizeof(texts) / sizeof(texts[0]);
 
     for (unsigned int i = 0; i < size; i++)
-        clamSpeechList.push_back(texts[i]);
+        mercurySpeechList.push_back(texts[i]);
 }

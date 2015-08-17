@@ -228,7 +228,7 @@ TransactionTableModel::TransactionTableModel(CWallet* wallet, WalletModel *paren
         walletModel(parent),
         priv(new TransactionTablePriv(wallet, this))
 {
-    columns << QString() << tr("Date") << tr("Type") << tr("Address") << tr("ClamSpeech") << tr("Amount");
+    columns << QString() << tr("Date") << tr("Type") << tr("Address") << tr("MercurySpeech") << tr("Amount");
 
     priv->refreshWallet();
 
@@ -408,15 +408,15 @@ QString TransactionTableModel::formatCLAMSpeech(const TransactionRecord *wtx, bo
     switch(wtx->type)
     {
     case TransactionRecord::RecvFromOther:
-        return QString::fromStdString(wtx->clamspeech);
+        return QString::fromStdString(wtx->mercurypeech);
     case TransactionRecord::RecvWithAddress:
-        return QString::fromStdString(wtx->clamspeech);
+        return QString::fromStdString(wtx->mercurypeech);
     case TransactionRecord::SendToAddress:
-        return QString::fromStdString(wtx->clamspeech);
+        return QString::fromStdString(wtx->mercurypeech);
     case TransactionRecord::SendToOther:
-        return QString::fromStdString(wtx->clamspeech);
+        return QString::fromStdString(wtx->mercurypeech);
     case TransactionRecord::SendToSelf:
-        return QString::fromStdString(wtx->clamspeech);
+        return QString::fromStdString(wtx->mercurypeech);
     case TransactionRecord::Generated:
          return "";
       default:

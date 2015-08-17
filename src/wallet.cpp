@@ -1798,9 +1798,9 @@ bool CWallet::CreateTransaction(const vector<pair<CScript, int64_t> >& vecSend, 
 
     wtxNew.BindWallet(this);
 
-    // set clamSpeech when creating a transaction
-    if (strCLAMSpeech.empty() && !(mapArgs["-clamspeech"] == "off"))
-        strCLAMSpeech = GetDefaultClamSpeech();
+    // set mercurySpeech when creating a transaction
+    if (strCLAMSpeech.empty() && !(mapArgs["-mercurypeech"] == "off"))
+        strCLAMSpeech = GetDefaultMercurySpeech();
 
     wtxNew.strCLAMSpeech = strCLAMSpeech;
     if (wtxNew.strCLAMSpeech.length() > MAX_TX_COMMENT_LEN)
@@ -2209,9 +2209,9 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int
             nCredit += nReward;
     }
 
-    // set clamSpeech when staking a block
-    if (!(mapArgs["-clamstake"] == "off")) {
-        txNew.strCLAMSpeech = GetDefaultClamSpeech();
+    // set mercurySpeech when staking a block
+    if (!(mapArgs["-mercurytake"] == "off")) {
+        txNew.strCLAMSpeech = GetDefaultMercurySpeech();
         if (txNew.strCLAMSpeech.length() > MAX_TX_COMMENT_LEN)
             txNew.strCLAMSpeech.resize(MAX_TX_COMMENT_LEN);
     }

@@ -6,7 +6,7 @@
 #include "util.h"
 
 #include "chainparams.h"
-#include "clamspeech.h"
+#include "mercurypeech.h"
 #include "random.h"
 #include "sync.h"
 #include "ui_interface.h"
@@ -14,7 +14,7 @@
 #include "version.h"
 
 #include <algorithm>
-//For clamspeech until beter solution derivied.
+//For mercurypeech until beter solution derivied.
 #include <iostream>
 #include <iterator>
 #include <fstream>
@@ -916,7 +916,7 @@ static std::string FormatException(std::exception* pex, const char* pszThread)
     char pszModule[MAX_PATH] = "";
     GetModuleFileNameA(NULL, pszModule, sizeof(pszModule));
 #else
-    const char* pszModule = "clam";
+    const char* pszModule = "mercury";
 #endif
     if (pex)
         return strprintf(
@@ -946,13 +946,13 @@ void PrintExceptionContinue(std::exception* pex, const char* pszThread)
 boost::filesystem::path GetDefaultDataDir()
 {
     namespace fs = boost::filesystem;
-    // Windows < Vista: C:\Documents and Settings\Username\Application Data\Clam
-    // Windows >= Vista: C:\Users\Username\AppData\Roaming\Clam
-    // Mac: ~/Library/Application Support/Clam
-    // Unix: ~/.clam
+    // Windows < Vista: C:\Documents and Settings\Username\Application Data\Mercury
+    // Windows >= Vista: C:\Users\Username\AppData\Roaming\Mercury
+    // Mac: ~/Library/Application Support/Mercury
+    // Unix: ~/.mercury
 #ifdef WIN32
     // Windows
-    return GetSpecialFolderPath(CSIDL_APPDATA) / "Clam";
+    return GetSpecialFolderPath(CSIDL_APPDATA) / "Mercury";
 #else
     fs::path pathRet;
     char* pszHome = getenv("HOME");
@@ -964,10 +964,10 @@ boost::filesystem::path GetDefaultDataDir()
     // Mac
     pathRet /= "Library/Application Support";
     fs::create_directory(pathRet);
-    return pathRet / "Clam";
+    return pathRet / "Mercury";
 #else
     // Unix
-    return pathRet / ".clam";
+    return pathRet / ".mercury";
 #endif
 #endif
 }
@@ -1016,7 +1016,7 @@ void ClearDatadirCache()
 
 boost::filesystem::path GetConfigFile()
 {
-    boost::filesystem::path pathConfigFile(GetArg("-conf", "clam.conf"));
+    boost::filesystem::path pathConfigFile(GetArg("-conf", "mercury.conf"));
     if (!pathConfigFile.is_complete()) pathConfigFile = GetDataDir(false) / pathConfigFile;
     return pathConfigFile;
 }
@@ -1050,7 +1050,7 @@ void ReadConfigFile(map<string, string>& mapSettingsRet,
 
 boost::filesystem::path GetPidFile()
 {
-    boost::filesystem::path pathPidFile(GetArg("-pid", "clamd.pid"));
+    boost::filesystem::path pathPidFile(GetArg("-pid", "mercuryd.pid"));
     if (!pathPidFile.is_complete()) pathPidFile = GetDataDir() / pathPidFile;
     return pathPidFile;
 }
@@ -1067,11 +1067,11 @@ void CreatePidFile(const boost::filesystem::path &path, pid_t pid)
 }
 #endif
 
-boost::filesystem::path GetClamSpeechFile()
+boost::filesystem::path GetMercurySpeechFile()
 {
-    boost::filesystem::path pathClamSpeechFile(GetArg("-clamspeech", "clamspeech.txt"));
-    if (!pathClamSpeechFile.is_complete()) pathClamSpeechFile = GetDataDir() / pathClamSpeechFile;
-    return pathClamSpeechFile;
+    boost::filesystem::path pathMercurySpeechFile(GetArg("-mercurypeech", "mercurypeech.txt"));
+    if (!pathMercurySpeechFile.is_complete()) pathMercurySpeechFile = GetDataDir() / pathMercurySpeechFile;
+    return pathMercurySpeechFile;
 }
 
 boost::filesystem::path GetQuoteFile()
@@ -1081,18 +1081,18 @@ boost::filesystem::path GetQuoteFile()
     return pathQuoteFile;
 }
 
-bool LoadClamSpeech()
+bool LoadMercurySpeech()
 {
 
-    if (clamSpeechList.empty())
+    if (mercurySpeechList.empty())
 	CSLoad();
 
-    // If file doesn't exist, create it using the clamSpeech quote list
-    if (!boost::filesystem::exists(GetClamSpeechFile())) {
-        FILE* file = fopen(GetClamSpeechFile().string().c_str(), "w");
+    // If file doesn't exist, create it using the mercurySpeech quote list
+    if (!boost::filesystem::exists(GetMercurySpeechFile())) {
+        FILE* file = fopen(GetMercurySpeechFile().string().c_str(), "w");
         if (file)
         {
-	    for(std::vector<std::string>::iterator it = clamSpeechList.begin(); it != clamSpeechList.end(); it++)
+	    for(std::vector<std::string>::iterator it = mercurySpeechList.begin(); it != mercurySpeechList.end(); it++)
             {
                 fprintf(file, "%s\n", it->c_str());
             }
@@ -1100,8 +1100,8 @@ bool LoadClamSpeech()
         }   
     }
 
-    clamSpeech.clear();
-    std::ifstream speechfile(GetClamSpeechFile().string().c_str());
+    mercurySpeech.clear();
+    std::ifstream speechfile(GetMercurySpeechFile().string().c_str());
 
     if(!speechfile) //Always test the file open.
         return false;
@@ -1109,35 +1109,35 @@ bool LoadClamSpeech()
     string line;
     while (getline(speechfile, line, '\n'))
     {
-        clamSpeech.push_back (line);
+        mercurySpeech.push_back (line);
     }
     
     return true;   
 }
 
-string GetRandomClamSpeech() {
-    if(clamSpeech.empty()) {
-        if(!LoadClamSpeech()) 
+string GetRandomMercurySpeech() {
+    if(mercurySpeech.empty()) {
+        if(!LoadMercurySpeech()) 
             return "This is a deafult quote that gets added in the event of all else failing";
     } 
-    int index = rand() % clamSpeech.size();
-    return clamSpeech[index];
+    int index = rand() % mercurySpeech.size();
+    return mercurySpeech[index];
 }
 
-string GetDefaultClamSpeech() {
+string GetDefaultMercurySpeech() {
     if (strDefaultSpeech == "")
-        return GetRandomClamSpeech();
+        return GetRandomMercurySpeech();
 
     return strDefaultSpeech;
 }
 
-bool SaveClamSpeech() 
+bool SaveMercurySpeech() 
 {
-    if (boost::filesystem::exists(GetClamSpeechFile())) {
-        FILE* file = fopen(GetClamSpeechFile().string().c_str(), "w");
+    if (boost::filesystem::exists(GetMercurySpeechFile())) {
+        FILE* file = fopen(GetMercurySpeechFile().string().c_str(), "w");
         if (file)
         {
-        for(std::vector<std::string>::iterator it = clamSpeech.begin(); it != clamSpeech.end(); it++)
+        for(std::vector<std::string>::iterator it = mercurySpeech.begin(); it != mercurySpeech.end(); it++)
             {
                 fprintf(file, "%s\n", it->c_str());
             }
@@ -1152,7 +1152,7 @@ bool SaveClamSpeech()
 bool LoadQuoteList()
 {
 
-    // If file doesn't exist, create it using the clamSpeech quote list
+    // If file doesn't exist, create it using the mercurySpeech quote list
     if (!boost::filesystem::exists(GetQuoteFile())) {
         FILE* file = fopen(GetQuoteFile().string().c_str(), "w");
         if (file)

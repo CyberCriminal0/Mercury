@@ -1,5 +1,5 @@
 TEMPLATE = app
-TARGET = clam-qt
+TARGET = mercury-qt
 VERSION = 1.4.3.0
 INCLUDEPATH += src src/json src/qt
 QT += network
@@ -237,11 +237,11 @@ HEADERS += src/qt/bitcoingui.h \
     src/clientversion.h \
     src/threadsafety.h \
     src/tinyformat.h \
-    src/clamspeech.h \
+    src/mercurypeech.h \
     src/chainparams.h
 
 SOURCES += src/txdb-leveldb.cpp \
-    src/clamspeech.cpp \
+    src/mercurypeech.cpp \
     src/qt/bitcoin.cpp \
     src/qt/bitcoingui.cpp \
     src/qt/transactiontablemodel.cpp \
@@ -416,7 +416,7 @@ macx:OBJECTIVE_SOURCES += src/qt/macdockiconhandler.mm
 macx:LIBS += -framework Foundation -framework ApplicationServices -framework AppKit
 macx:DEFINES += MAC_OSX MSG_NOSIGNAL=0
 macx:ICON = src/qt/res/icons/bitcoin.icns
-macx:TARGET = "Clam-Qt"
+macx:TARGET = "Mercury-Qt"
 macx:QMAKE_CFLAGS_THREAD += -pthread
 macx:QMAKE_LFLAGS_THREAD += -pthread
 macx:QMAKE_CXXFLAGS_THREAD += -pthread
