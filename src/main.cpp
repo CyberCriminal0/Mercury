@@ -993,11 +993,11 @@ int generateMTRandom(unsigned int s, int range)
 // miner's coin base reward
 int64_t GetProofOfWorkReward(int nHeight, int64_t nFees)
 {
-    int64_t nSubsidy = 2.15652173 * COIN;
-    if (nHeight < 4551  ) {
-      nSubsidy = 3284 * COIN;
-    } else if (nHeight < 9551) {
-        nSubsidy = 2.15652173 * COIN;
+    int64_t nSubsidy = 1 * COIN;
+    if (nHeight = 2  ) {
+      nSubsidy =  3000000000 * COIN;
+    } else if (nHeight > 2) {
+        nSubsidy = 1 * COIN;
    }
 
     LogPrint("creation", "GetProofOfWorkReward() : create=%s nSubsidy=%d\n", FormatMoney(nSubsidy), nSubsidy);
