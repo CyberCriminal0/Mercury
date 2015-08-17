@@ -1,4 +1,4 @@
-#include <mercurypeech.h>
+#include <mercuryspeech.h>
 
 using namespace std;
 

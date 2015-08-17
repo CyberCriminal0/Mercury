@@ -6,7 +6,7 @@
 #include "util.h"
 
 #include "chainparams.h"
-#include "mercurypeech.h"
+#include "mercuryspeech.h"
 #include "random.h"
 #include "sync.h"
 #include "ui_interface.h"
