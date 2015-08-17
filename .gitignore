@@ -1,7 +1,7 @@
 src/*.exe
-src/Clam
-src/Clamd
-src/test_Clam
+src/Mercury
+src/Mercuryd
+src/test_Mercury
 src/build.h
 .*.swp
 *.*~*
@@ -10,11 +10,11 @@ src/build.h
 *.orig
 *.o
 *.patch
-.Clam
+.Mercury
 #compilation and Qt preprocessor part
 *.qm
 Makefile
-Clam-qt
+Mercury-qt
 #resources cpp
 qrc_*.cpp
 #qt creator
@@ -24,7 +24,7 @@ qrc_*.cpp
 build
 
 !src/leveldb/Makefile
-clamd
+mercuryd
 configure
 aclocal.m4
 bitcoin-config.h.in
@@ -110,16 +110,16 @@ src/test/data/base58_keys_valid.json.h
 src/test/data/script_invalid.json.h
 src/test/data/script_valid.json.h
 test_bitcoin
-src/qt/clam-qt
+src/qt/mercury-qt
 src/qt/moc_aboutdialog.cpp
 src/qt/moc_monitoreddatamapper.cpp
 src/qt/test/moc_uritests.cpp
 src/qt/test/test_bitcoin-qt
-src/qt/clam-qt.config
-src/qt/clam-qt.creator
-src/qt/clam-qt.creator.user
-src/qt/clam-qt.files
-src/qt/clam-qt.includes
+src/qt/mercury-qt.config
+src/qt/mercury-qt.creator
+src/qt/mercury-qt.creator.user
+src/qt/mercury-qt.files
+src/qt/mercury-qt.includes
 moc_qrcodedialog.cpp
 moc_macnotificationhandler.cpp
 libbitcoin_util_a-cleanse.Po
