@@ -55,7 +55,7 @@ public:
         pchMessageStart[2] = 0x35;
         pchMessageStart[3] = 0x15;
         vAlertPubKey = ParseHex("0486bce1bac0d543f104cbff2bd23680056a3b9ea05e1137d2ff90eeb5e08472eb500322593a2cb06fbf8297d7beb6cd30cb90f98153b5b7cce1493749e41e0284");
-        nDefaultPort = 54163;
+        nDefaultPort = 31174;
         nRPCPort = 56412;
         bnProofOfWorkLimit = CBigNum(~uint256(0) >> 20);
 
@@ -78,8 +78,8 @@ public:
         genesis.nNonce   = 433631;
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0xc37941d80e6e750161eb12d002f4392ac877871b1d2d7df6189b04631270e6d0"));
-        assert(genesis.hashMerkleRoot == uint256("0xc3a2eb01b4d3d9cdcf280594edde1100d1823251e1efea120e0d0f3ada9587a4"));
+        //assert(hashGenesisBlock == uint256("0xc37941d80e6e750161eb12d002f4392ac877871b1d2d7df6189b04631270e6d0"));
+        //assert(genesis.hashMerkleRoot == uint256("0xc3a2eb01b4d3d9cdcf280594edde1100d1823251e1efea120e0d0f3ada9587a4"));
 
         // push peer seeders running this network crawler: https://github.com/dooglus/bitcoin-seeder/tree/mercury
         PUSH_SEED("mercury.chunkhost.com")
@@ -135,7 +135,7 @@ public:
         genesis.nBits  = bnProofOfWorkLimit.GetCompact();
         genesis.nNonce = 1279100;
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x0000135b14723652fecaeb07a52cebf3f69512594eae48d139956bca67552441"));
+        //assert(hashGenesisBlock == uint256("0x0000135b14723652fecaeb07a52cebf3f69512594eae48d139956bca67552441"));
 
         vFixedSeeds.clear();
         vSeeds.clear();

@@ -62,8 +62,8 @@ static const unsigned int MAX_TX_COMMENT_LEN = 140; // 128 bytes + little extra
 static const uint256 hashGenesisBlock("0xc37941d80e6e750161eb12d002f4392ac877871b1d2d7df6189b04631270e6d0");
 static const uint256 hashGenesisBlockTestNet("0x0000135b14723652fecaeb07a52cebf3f69512594eae48d139956bca67552441");
 
-static const uint256 hashHighBlock ("0xdb61f591d7fb40afa08476d6492e81a06edddf332d7027968ac130db95c07cb7");
-static const int HIGH_BLOCK_INDEX = 275000;
+static const uint256 hashHighBlock ("0xc37941d80e6e750161eb12d002f4392ac877871b1d2d7df6189b04631270e6d0");
+static const int HIGH_BLOCK_INDEX = 0;
 
 
 inline bool IsProtocolV2(int nHeight) { return nHeight > 203500; }
