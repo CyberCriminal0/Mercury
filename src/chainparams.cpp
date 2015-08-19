@@ -78,12 +78,13 @@ public:
         genesis.nNonce   = 433631;
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0xc37941d80e6e750161eb12d002f4392ac877871b1d2d7df6189b04631270e6d0"));
-        assert(genesis.hashMerkleRoot == uint256("0xc3a2eb01b4d3d9cdcf280594edde1100d1823251e1efea120e0d0f3ada9587a4"));
+        //assert(hashGenesisBlock == uint256("0xc37941d80e6e750161eb12d002f4392ac877871b1d2d7df6189b04631270e6d0"));
+        //assert(genesis.hashMerkleRoot == uint256("0xc3a2eb01b4d3d9cdcf280594edde1100d1823251e1efea120e0d0f3ada9587a4"));
 
         // push peer seeders running this network crawler: https://github.com/dooglus/bitcoin-seeder/tree/mercury
         PUSH_SEED("mercury.chunkhost.com")
-
+	PUSH_SEED("mercuryclient.com")
+	PUSH_SEED("76.74.178.223")
         base58Prefixes[PUBKEY_ADDRESS] = list_of(137);
         base58Prefixes[SCRIPT_ADDRESS] = list_of(13);
         //CLAM Secret key, from old base58.h (release 1.4.2.1)  == 5 + 128
@@ -135,7 +136,7 @@ public:
         genesis.nBits  = bnProofOfWorkLimit.GetCompact();
         genesis.nNonce = 1279100;
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x0000135b14723652fecaeb07a52cebf3f69512594eae48d139956bca67552441"));
+        //assert(hashGenesisBlock == uint256("0x0000135b14723652fecaeb07a52cebf3f69512594eae48d139956bca67552441"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
@@ -171,7 +172,7 @@ public:
         hashGenesisBlock = genesis.GetHash();
         nDefaultPort = 18444;
         strDataDir = "regtest";
-        assert(hashGenesisBlock == uint256("0x523dda6d336047722cbaf1c5dce622298af791bac21b33bf6e2d5048b2a13e3d"));
+        //assert(hashGenesisBlock == uint256("0x523dda6d336047722cbaf1c5dce622298af791bac21b33bf6e2d5048b2a13e3d"));
 
         vSeeds.clear();  // Regtest mode doesn't have any DNS seeds.
     }
