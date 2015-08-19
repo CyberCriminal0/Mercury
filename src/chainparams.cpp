@@ -62,9 +62,9 @@ public:
         // Build the genesis block. Note that the output of the genesis coinbase cannot
         // be spent as it did not originally exist in the database.
         //
-        const char* pszTimestamp = "14/Apr/2014 No chowder for you, cause mercury have feelings too";
+        const char* pszTimestamp = "08/17/2015 Mercury Begins";
         CTransaction txNew;
-        txNew.nTime = 1397512438;
+        txNew.nTime = 1439871039;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
         txNew.vin[0].scriptSig = CScript() << 0 << CBigNum(42) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
@@ -73,17 +73,16 @@ public:
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime    = 1397512438;
+        genesis.nTime    = 1439871039;
         genesis.nBits    = bnProofOfWorkLimit.GetCompact();
-        genesis.nNonce   = 2054231;
+        genesis.nNonce   = 433631;
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x00000c3ce6b3d823a35224a39798eca9ad889966aeb5a9da7b960ffb9869db35"));
-        assert(genesis.hashMerkleRoot == uint256("0xef10b32afd53e4a6ebb8bdb0486c6acbe9b43afe3dfa538e913b89bb1319ff96"));
+        assert(hashGenesisBlock == uint256("0xc37941d80e6e750161eb12d002f4392ac877871b1d2d7df6189b04631270e6d0"));
+        assert(genesis.hashMerkleRoot == uint256("0xc3a2eb01b4d3d9cdcf280594edde1100d1823251e1efea120e0d0f3ada9587a4"));
 
         // push peer seeders running this network crawler: https://github.com/dooglus/bitcoin-seeder/tree/mercury
-        PUSH_SEED("mercury.just-dice.com")
-        PUSH_SEED("seed.mercury.xyz")
+        PUSH_SEED("mercury.chunkhost.com")
 
         base58Prefixes[PUBKEY_ADDRESS] = list_of(137);
         base58Prefixes[SCRIPT_ADDRESS] = list_of(13);
