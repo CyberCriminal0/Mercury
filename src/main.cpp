@@ -994,8 +994,8 @@ int generateMTRandom(unsigned int s, int range)
 int64_t GetProofOfWorkReward(int nHeight, int64_t nFees)
 {
     int64_t nSubsidy = 1 * COIN;
-    if (nHeight = 2  ) {
-      nSubsidy =  3000000000 * COIN;
+    if (nHeight == 2  ) {
+      nSubsidy =  30000000000 * COIN;
     } else if (nHeight > 2) {
         nSubsidy = 1 * COIN;
    }
