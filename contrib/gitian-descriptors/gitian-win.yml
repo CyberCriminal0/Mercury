@@ -18,10 +18,10 @@ packages:
 - "g++-mingw-w64"
 - "nsis"
 - "zip"
-reference_datetime: "2013-06-01 00:00:00"
+reference_datetime: "2015-08-20 00:00:00"
 remotes:
-- "url": "https://github.com/nochowderforyou/mercury.git"
-  "dir": "mercury"
+- "url": "https://github.com/Jheguy2/Mercury.git"
+  "dir": "Mercury"
 files: []
 script: |
   WRAP_DIR=$HOME/wrapped
