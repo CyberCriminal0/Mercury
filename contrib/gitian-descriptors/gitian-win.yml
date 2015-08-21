@@ -1,5 +1,5 @@
 ---
-name: "Mercury-win-1.4.3.2"
+name: "mercury-win-1.4.3.2"
 enable_cache: true
 suites:
 - "precise"
@@ -76,14 +76,14 @@ script: |
   ./autogen.sh
   ./configure --prefix=${BASEPREFIX}/`echo "${HOSTS}" | awk '{print $1;}'`
   make dist
-  SOURCEDIST=`echo Mercury-*.tar.gz`
+  SOURCEDIST=`echo mercury-*.tar.gz`
   DISTNAME=`echo ${SOURCEDIST} | sed 's/.tar.*//'`
 
   # Correct tar file order
   mkdir -p temp
   pushd temp
   tar xf ../$SOURCEDIST
-  find Mercury-* | sort | tar --no-recursion --mode='u+rw,go+r-w,a+X' --owner=0 --group=0 -c -T - | gzip -9n > ../$SOURCEDIST
+  find mercury-* | sort | tar --no-recursion --mode='u+rw,go+r-w,a+X' --owner=0 --group=0 -c -T - | gzip -9n > ../$SOURCEDIST
   popd
 
   ORIGPATH="$PATH"
@@ -100,7 +100,7 @@ script: |
     make ${MAKEOPTS}
     make deploy
     make install-strip
-    cp -f Mercury-*setup*.exe $OUTDIR/
+    cp -f mercury-*setup*.exe $OUTDIR/
     cd installed
     find . -name "*.dll"
     #mv ${DISTNAME}/bin/*.dll ${DISTNAME}/lib/
