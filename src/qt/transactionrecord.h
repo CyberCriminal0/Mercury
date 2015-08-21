@@ -78,21 +78,21 @@ public:
     static const int RecommendedNumConfirmations = 10;
 
     TransactionRecord():
-            hash(), time(0), type(Other), address(""), debit(0), credit(0), mercurypeech(""), idx(0)
+            hash(), time(0), type(Other), address(""), debit(0), credit(0), mercuryspeech(""), idx(0)
     {
     }
 
     TransactionRecord(uint256 hash, int64_t time):
             hash(hash), time(time), type(Other), address(""), debit(0),
-            credit(0), mercurypeech(""), idx(0)
+            credit(0), mercuryspeech(""), idx(0)
     {
     }
 
     TransactionRecord(uint256 hash, int64_t time,
                 Type type, const std::string &address,
-                int64_t debit, int64_t credit, std::string mercurypeech):
+                int64_t debit, int64_t credit, std::string mercuryspeech):
             hash(hash), time(time), type(type), address(address), debit(debit), credit(credit),
-            mercurypeech(mercurypeech), idx(0)
+            mercuryspeech(mercuryspeech), idx(0)
     {
     }
 
@@ -109,7 +109,7 @@ public:
     std::string address;
     qint64 debit;
     qint64 credit;
-    std::string mercurypeech;
+    std::string mercuryspeech;
     /**@}*/
 
     /** Subtransaction index, for sort key */

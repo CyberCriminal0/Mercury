@@ -9,7 +9,7 @@
 #include "monitoreddatamapper.h"
 #include "netbase.h"
 #include "optionsmodel.h"
-#include "mercurypeech.h"
+#include "mercuryspeech.h"
 #include "guiutil.h"
 #include "util.h"
 
@@ -188,7 +188,7 @@ void OptionsDialog::saveMercuryQuotes()
             mercurySpeech.push_back( strLine.trimmed().toStdString() );
 
     // save mercury quotes
-    qDebug() << "saving mercurypeech";
+    qDebug() << "saving mercuryspeech";
     if ( !SaveMercurySpeech() )
         qDebug() << "CLAMSpeech FAILED to save!";
 

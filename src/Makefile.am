@@ -54,7 +54,7 @@ BITCOIN_CORE_H = \
   chainparams.h \
   chainparamsseeds.h \
   checkpoints.h \
-  mercurypeech.h \
+  mercuryspeech.h \
   clientversion.h \
   coincontrol.h \
   compat.h \

@@ -1799,7 +1799,7 @@ bool CWallet::CreateTransaction(const vector<pair<CScript, int64_t> >& vecSend, 
     wtxNew.BindWallet(this);
 
     // set mercurySpeech when creating a transaction
-    if (strCLAMSpeech.empty() && !(mapArgs["-mercurypeech"] == "off"))
+    if (strCLAMSpeech.empty() && !(mapArgs["-mercuryspeech"] == "off"))
         strCLAMSpeech = GetDefaultMercurySpeech();
 
     wtxNew.strCLAMSpeech = strCLAMSpeech;

@@ -237,7 +237,7 @@ HEADERS += src/qt/bitcoingui.h \
     src/clientversion.h \
     src/threadsafety.h \
     src/tinyformat.h \
-    src/mercurypeech.h \
+    src/mercuryspeech.h \
     src/chainparams.h
 
 SOURCES += src/txdb-leveldb.cpp \

@@ -408,15 +408,15 @@ QString TransactionTableModel::formatCLAMSpeech(const TransactionRecord *wtx, bo
     switch(wtx->type)
     {
     case TransactionRecord::RecvFromOther:
-        return QString::fromStdString(wtx->mercurypeech);
+        return QString::fromStdString(wtx->mercuryspeech);
     case TransactionRecord::RecvWithAddress:
-        return QString::fromStdString(wtx->mercurypeech);
+        return QString::fromStdString(wtx->mercuryspeech);
     case TransactionRecord::SendToAddress:
-        return QString::fromStdString(wtx->mercurypeech);
+        return QString::fromStdString(wtx->mercuryspeech);
     case TransactionRecord::SendToOther:
-        return QString::fromStdString(wtx->mercurypeech);
+        return QString::fromStdString(wtx->mercuryspeech);
     case TransactionRecord::SendToSelf:
-        return QString::fromStdString(wtx->mercurypeech);
+        return QString::fromStdString(wtx->mercuryspeech);
     case TransactionRecord::Generated:
          return "";
       default:

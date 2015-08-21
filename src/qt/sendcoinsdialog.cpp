@@ -16,7 +16,7 @@
 #include "coincontrol.h"
 #include "coincontroldialog.h"
 
-#include "mercurypeech.h"
+#include "mercuryspeech.h"
 
 #include <QDebug>
 #include <QString>
@@ -126,7 +126,7 @@ void SendCoinsDialog::on_sendButton_clicked()
     if(!model)
         return;
 
-    QString mercurypeech = ui->mercuryQuotes->currentText();
+    QString mercuryspeech = ui->mercuryQuotes->currentText();
 
     for(int i = 0; i < ui->entries->count(); ++i)
     {
@@ -180,9 +180,9 @@ void SendCoinsDialog::on_sendButton_clicked()
     WalletModel::SendCoinsReturn sendstatus;
 
     if (!model->getOptionsModel() || !model->getOptionsModel()->getCoinControlFeatures())
-        sendstatus = model->sendCoins(mercurypeech, recipients);
+        sendstatus = model->sendCoins(mercuryspeech, recipients);
     else
-        sendstatus = model->sendCoins(mercurypeech, recipients, CoinControlDialog::coinControl);
+        sendstatus = model->sendCoins(mercuryspeech, recipients, CoinControlDialog::coinControl);
 
     switch(sendstatus.status)
     {
@@ -398,7 +398,7 @@ void SendCoinsDialog::loadMercurySpeech()
     // disconnect widget change signal to stop clashing
     disconnect( ui->mercuryQuotes, SIGNAL(currentIndexChanged(int)), this, SLOT(mercurySpeechIndexChanged(int)) );
 
-    // Load quotes from mercurypeech.h
+    // Load quotes from mercuryspeech.h
     ui->mercuryQuotes->clear();
     for ( ulong i = 0; i < mercurySpeech.size(); i++ )
         ui->mercuryQuotes->addItem( QString::fromStdString( mercurySpeech.at(i) ) );
@@ -432,7 +432,7 @@ void SendCoinsDialog::loadMercurySpeech()
     qDebug() << "nMercurySpeechIndex =" << nMercurySpeechIndex;
     qDebug() << "CLAMSpeech selected index" << ui->mercuryQuotes->currentIndex();
 
-    // setup mercurypeech widget change signal
+    // setup mercuryspeech widget change signal
     connect( ui->mercuryQuotes, SIGNAL(currentIndexChanged(int)), this, SLOT(mercurySpeechIndexChanged(int)) );
 }
 

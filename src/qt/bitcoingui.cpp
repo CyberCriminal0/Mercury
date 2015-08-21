@@ -764,7 +764,7 @@ void BitcoinGUI::incomingTransaction(const QModelIndex & parent, int start, int 
                         .data().toString();
         QString address = ttm->index(start, TransactionTableModel::ToAddress, parent)
                         .data().toString();
-        QString mercurypeech = ttm->index(start, TransactionTableModel::CLAMSpeech, parent)
+        QString mercuryspeech = ttm->index(start, TransactionTableModel::CLAMSpeech, parent)
                         .data().toString();
         QIcon icon = qvariant_cast<QIcon>(ttm->index(start,
                             TransactionTableModel::ToAddress, parent)
@@ -781,7 +781,7 @@ void BitcoinGUI::incomingTransaction(const QModelIndex & parent, int start, int 
                               .arg(date)
                               .arg(BitcoinUnits::formatWithUnit(walletModel->getOptionsModel()->getDisplayUnit(), amount, true))
                               .arg(type)
-                              .arg(address + (mercurypeech.length() > 0 ? ("\n" + mercurypeech) : "")), icon);
+                              .arg(address + (mercuryspeech.length() > 0 ? ("\n" + mercuryspeech) : "")), icon);
     }
 }
 
@@ -837,7 +837,7 @@ void BitcoinGUI::gotoOptionsPage()
         optionsPage->setModel(clientModel->getOptionsModel());
         centralStackedWidget->addWidget(optionsPage);
 
-        // sync mercurypeech editor with the selector in SendCoinsDialog
+        // sync mercuryspeech editor with the selector in SendCoinsDialog
         connect( optionsPage, SIGNAL(onMercurySpeechUpdated()), this, SLOT(uiReady()) );
     }
 

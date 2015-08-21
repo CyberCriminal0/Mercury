@@ -14,7 +14,7 @@
 #include "version.h"
 
 #include <algorithm>
-//For mercurypeech until beter solution derivied.
+//For mercuryspeech until beter solution derivied.
 #include <iostream>
 #include <iterator>
 #include <fstream>
@@ -1069,7 +1069,7 @@ void CreatePidFile(const boost::filesystem::path &path, pid_t pid)
 
 boost::filesystem::path GetMercurySpeechFile()
 {
-    boost::filesystem::path pathMercurySpeechFile(GetArg("-mercurypeech", "mercurypeech.txt"));
+    boost::filesystem::path pathMercurySpeechFile(GetArg("-mercuryspeech", "mercuryspeech.txt"));
     if (!pathMercurySpeechFile.is_complete()) pathMercurySpeechFile = GetDataDir() / pathMercurySpeechFile;
     return pathMercurySpeechFile;
 }

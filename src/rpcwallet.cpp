@@ -304,18 +304,18 @@ Value sendtoaddress(const Array& params, bool fHelp)
         wtx.mapValue["to"]      = params[3].get_str();
 
      // Transaction comment
-    std::string mercurypeech;
+    std::string mercuryspeech;
     if (params.size() > 4 && params[4].type() != null_type && !params[4].get_str().empty())
     {
-        mercurypeech = params[4].get_str();
-        if (mercurypeech.length() > MAX_TX_COMMENT_LEN)
-            mercurypeech.resize(MAX_TX_COMMENT_LEN);
+        mercuryspeech = params[4].get_str();
+        if (mercuryspeech.length() > MAX_TX_COMMENT_LEN)
+            mercuryspeech.resize(MAX_TX_COMMENT_LEN);
      }
 
     if (pwalletMain->IsLocked())
         throw JSONRPCError(RPC_WALLET_UNLOCK_NEEDED, "Error: Please enter the wallet passphrase with walletpassphrase first.");
 
-    string strError = pwalletMain->SendMoneyToDestination(address.Get(), nAmount, nCount, wtx, mercurypeech);
+    string strError = pwalletMain->SendMoneyToDestination(address.Get(), nAmount, nCount, wtx, mercuryspeech);
     if (strError != "")
         throw JSONRPCError(RPC_WALLET_ERROR, strError);
 
@@ -738,12 +738,12 @@ Value sendfrom(const Array& params, bool fHelp)
     if (params.size() > 5 && params[5].type() != null_type && !params[5].get_str().empty())
         wtx.mapValue["to"]      = params[5].get_str();
 
-    std::string mercurypeech;
+    std::string mercuryspeech;
     if (params.size() > 6 && params[6].type() != null_type && !params[6].get_str().empty())
     {
-        mercurypeech = params[6].get_str();
-        if (mercurypeech.length() > MAX_TX_COMMENT_LEN)
-            mercurypeech.resize(MAX_TX_COMMENT_LEN);
+        mercuryspeech = params[6].get_str();
+        if (mercuryspeech.length() > MAX_TX_COMMENT_LEN)
+            mercuryspeech.resize(MAX_TX_COMMENT_LEN);
     }
 
     EnsureWalletIsUnlocked();
@@ -754,7 +754,7 @@ Value sendfrom(const Array& params, bool fHelp)
         throw JSONRPCError(RPC_WALLET_INSUFFICIENT_FUNDS, "Account has insufficient funds");
 
     // Send
-    string strError = pwalletMain->SendMoneyToDestination(address.Get(), nAmount, nCount, wtx, mercurypeech);
+    string strError = pwalletMain->SendMoneyToDestination(address.Get(), nAmount, nCount, wtx, mercuryspeech);
     if (strError != "")
         throw JSONRPCError(RPC_WALLET_ERROR, strError);
 

@@ -260,7 +260,7 @@ Value createrawtransaction(const Array& params, bool fHelp)
     // set mercurySpeech when creating a raw transaction
     if (params.size() == 3)
         rawTx.strCLAMSpeech = params[2].get_str();
-    else if (mapArgs["-mercurypeech"] != "off")
+    else if (mapArgs["-mercuryspeech"] != "off")
         rawTx.strCLAMSpeech = GetDefaultMercurySpeech();
 
     if (rawTx.strCLAMSpeech.length() > MAX_TX_COMMENT_LEN)
