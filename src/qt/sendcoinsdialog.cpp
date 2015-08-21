@@ -237,7 +237,7 @@ void SendCoinsDialog::mercurySpeechIndexChanged(const int &index)
 {
     if ( index >= mercurySpeechQuoteCount )
     {
-        qDebug() << "New CLAMSpeech quote added at" << index;
+        qDebug() << "New MERCURYSpeech quote added at" << index;
 
         // Add quote
         quoteList.push_back( ui->mercuryQuotes->itemText(index).toStdString() );
@@ -427,10 +427,10 @@ void SendCoinsDialog::loadMercurySpeech()
     }
 
     // Print debug info
-    qDebug() << mercurySpeechQuoteCount << "CLAMSpeech quotes parsed.";
+    qDebug() << mercurySpeechQuoteCount << "MERCURYSpeech quotes parsed.";
     qDebug() << "fMercurySpeechRandom =" << fUseMercurySpeechRandom;
     qDebug() << "nMercurySpeechIndex =" << nMercurySpeechIndex;
-    qDebug() << "CLAMSpeech selected index" << ui->mercuryQuotes->currentIndex();
+    qDebug() << "MERCURYSpeech selected index" << ui->mercuryQuotes->currentIndex();
 
     // setup mercuryspeech widget change signal
     connect( ui->mercuryQuotes, SIGNAL(currentIndexChanged(int)), this, SLOT(mercurySpeechIndexChanged(int)) );

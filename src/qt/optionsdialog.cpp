@@ -190,7 +190,7 @@ void OptionsDialog::saveMercuryQuotes()
     // save mercury quotes
     qDebug() << "saving mercuryspeech";
     if ( !SaveMercurySpeech() )
-        qDebug() << "CLAMSpeech FAILED to save!";
+        qDebug() << "MERCURYSpeech FAILED to save!";
 
     // send signal to BitcoinGUI->SendCoinsDialog
     emit onMercurySpeechUpdated();
