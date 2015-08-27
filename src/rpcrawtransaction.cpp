@@ -55,7 +55,7 @@ void TxToJSON(const CTransaction& tx, const uint256 hashBlock, Object& entry)
     entry.push_back(Pair("locktime", (int64_t)tx.nLockTime));
     if (tx.nVersion > CTransaction::LEGACY_VERSION_1)
     {
-      entry.push_back(Pair("mercury-speech", tx.strMERCURYSpeech));
+      entry.push_back(Pair("mercury-speech", tx.strmessages));
     }
     Array vin;
     BOOST_FOREACH(const CTxIn& txin, tx.vin)
@@ -259,12 +259,12 @@ Value createrawtransaction(const Array& params, bool fHelp)
 
     // set mercurySpeech when creating a raw transaction
     if (params.size() == 3)
-        rawTx.strMERCURYSpeech = params[2].get_str();
+        rawTx.strmessages = params[2].get_str();
     else if (mapArgs["-mercuryspeech"] != "off")
-        rawTx.strMERCURYSpeech = GetDefaultMercurySpeech();
+        rawTx.strmessages = GetDefaultMercurySpeech();
 
-    if (rawTx.strMERCURYSpeech.length() > MAX_TX_COMMENT_LEN)
-        rawTx.strMERCURYSpeech.resize(MAX_TX_COMMENT_LEN);
+    if (rawTx.strmessages.length() > MAX_TX_COMMENT_LEN)
+        rawTx.strmessages.resize(MAX_TX_COMMENT_LEN);
 
     BOOST_FOREACH(Value& input, inputs)
     {

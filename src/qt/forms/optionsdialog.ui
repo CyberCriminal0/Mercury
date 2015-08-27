@@ -422,13 +422,13 @@
      </widget>
      <widget class="QWidget" name="tabSpeech">
       <attribute name="title">
-       <string>MERCURYSpeech</string>
+       <string>messages</string>
       </attribute>
       <layout class="QGridLayout" name="gridLayout_3">
        <item row="0" column="0">
         <widget class="QGroupBox" name="mercurySpeechGroupbox">
          <property name="title">
-          <string>Enable MERCURYSpeech</string>
+          <string>Enable messages</string>
          </property>
          <property name="checkable">
           <bool>true</bool>

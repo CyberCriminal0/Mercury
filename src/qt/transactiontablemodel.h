@@ -24,7 +24,7 @@ public:
         Date = 1,
         Type = 2,
         ToAddress = 3,
-        MERCURYSpeech = 4,
+        messages = 4,
         Amount = 5,
     };
 
@@ -73,7 +73,7 @@ private:
     QString formatTxType(const TransactionRecord *wtx) const;
     QString formatTxToAddress(const TransactionRecord *wtx, bool tooltip) const;
     QString formatTxAmount(const TransactionRecord *wtx, bool showUnconfirmed=true) const;
-    QString formatMERCURYSpeech(const TransactionRecord *wtx, bool tooltip) const;
+    QString formatmessages(const TransactionRecord *wtx, bool tooltip) const;
     QString formatTooltip(const TransactionRecord *rec) const;
     QVariant txStatusDecoration(const TransactionRecord *wtx) const;
     QVariant txAddressDecoration(const TransactionRecord *wtx) const;

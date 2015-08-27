@@ -403,7 +403,7 @@ QString TransactionTableModel::formatTxToAddress(const TransactionRecord *wtx, b
     }
 }
 
-QString TransactionTableModel::formatMERCURYSpeech(const TransactionRecord *wtx, bool tooltip) const
+QString TransactionTableModel::formatmessages(const TransactionRecord *wtx, bool tooltip) const
 {
     switch(wtx->type)
     {
@@ -533,8 +533,8 @@ QVariant TransactionTableModel::data(const QModelIndex &index, int role) const
             return formatTxToAddress(rec, false);
         case Amount:
             return formatTxAmount(rec);
-        case MERCURYSpeech:
-             return formatMERCURYSpeech(rec, false);
+        case messages:
+             return formatmessages(rec, false);
         }
         break;
     case Qt::EditRole:
@@ -551,8 +551,8 @@ QVariant TransactionTableModel::data(const QModelIndex &index, int role) const
             return formatTxToAddress(rec, true);
         case Amount:
             return rec->credit + rec->debit;
-        case MERCURYSpeech:
-            return formatMERCURYSpeech(rec, false);
+        case messages:
+            return formatmessages(rec, false);
         }
         break;
     case Qt::ToolTipRole:
@@ -627,7 +627,7 @@ QVariant TransactionTableModel::headerData(int section, Qt::Orientation orientat
                 return tr("Destination address of transaction.");
             case Amount:
                 return tr("Amount removed from or added to balance.");
-            case MERCURYSpeech:
+            case messages:
                 return tr("Transaction comment.");
             }
         }

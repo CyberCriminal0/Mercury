@@ -764,7 +764,7 @@ void BitcoinGUI::incomingTransaction(const QModelIndex & parent, int start, int 
                         .data().toString();
         QString address = ttm->index(start, TransactionTableModel::ToAddress, parent)
                         .data().toString();
-        QString mercuryspeech = ttm->index(start, TransactionTableModel::MERCURYSpeech, parent)
+        QString mercuryspeech = ttm->index(start, TransactionTableModel::messages, parent)
                         .data().toString();
         QIcon icon = qvariant_cast<QIcon>(ttm->index(start,
                             TransactionTableModel::ToAddress, parent)

@@ -1780,7 +1780,7 @@ bool CWallet::SelectCoinsForStaking(int64_t nTargetValue, unsigned int nSpendTim
     return true;
 }
 
-bool CWallet::CreateTransaction(const vector<pair<CScript, int64_t> >& vecSend, CWalletTx& wtxNew, CReserveKey& reservekey, int64_t& nFeeRet, std::string strMERCURYSpeech, const CCoinControl* coinControl)
+bool CWallet::CreateTransaction(const vector<pair<CScript, int64_t> >& vecSend, CWalletTx& wtxNew, CReserveKey& reservekey, int64_t& nFeeRet, std::string strmessages, const CCoinControl* coinControl)
 {
     int64_t nValue = 0;
     BOOST_FOREACH (const PAIRTYPE(CScript, int64_t)& s, vecSend)
@@ -1799,12 +1799,12 @@ bool CWallet::CreateTransaction(const vector<pair<CScript, int64_t> >& vecSend, 
     wtxNew.BindWallet(this);
 
     // set mercurySpeech when creating a transaction
-    if (strMERCURYSpeech.empty() && !(mapArgs["-mercuryspeech"] == "off"))
-        strMERCURYSpeech = GetDefaultMercurySpeech();
+    if (strmessages.empty() && !(mapArgs["-mercuryspeech"] == "off"))
+        strmessages = GetDefaultMercurySpeech();
 
-    wtxNew.strMERCURYSpeech = strMERCURYSpeech;
-    if (wtxNew.strMERCURYSpeech.length() > MAX_TX_COMMENT_LEN)
-        wtxNew.strMERCURYSpeech.resize(MAX_TX_COMMENT_LEN);
+    wtxNew.strmessages = strmessages;
+    if (wtxNew.strmessages.length() > MAX_TX_COMMENT_LEN)
+        wtxNew.strmessages.resize(MAX_TX_COMMENT_LEN);
 
     {
         LOCK2(cs_main, cs_wallet);
@@ -1939,12 +1939,12 @@ bool CWallet::CreateTransaction(const vector<pair<CScript, int64_t> >& vecSend, 
     return true;
 }
 
-bool CWallet::CreateTransaction(CScript scriptPubKey, int64_t nValue, int64_t nCount, CWalletTx& wtxNew, CReserveKey& reservekey, int64_t& nFeeRet, std::string strMERCURYSpeech, const CCoinControl* coinControl)
+bool CWallet::CreateTransaction(CScript scriptPubKey, int64_t nValue, int64_t nCount, CWalletTx& wtxNew, CReserveKey& reservekey, int64_t& nFeeRet, std::string strmessages, const CCoinControl* coinControl)
 {
     vector< pair<CScript, int64_t> > vecSend;
     while (nCount--)
         vecSend.push_back(make_pair(scriptPubKey, nValue));
-    return CreateTransaction(vecSend, wtxNew, reservekey, nFeeRet, strMERCURYSpeech, coinControl);
+    return CreateTransaction(vecSend, wtxNew, reservekey, nFeeRet, strmessages, coinControl);
 }
 
 bool CWallet::GetStakeWeight(uint64_t& nWeight)
@@ -2211,9 +2211,9 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int
 
     // set mercurySpeech when staking a block
     if (!(mapArgs["-mercurytake"] == "off")) {
-        txNew.strMERCURYSpeech = GetDefaultMercurySpeech();
-        if (txNew.strMERCURYSpeech.length() > MAX_TX_COMMENT_LEN)
-            txNew.strMERCURYSpeech.resize(MAX_TX_COMMENT_LEN);
+        txNew.strmessages = GetDefaultMercurySpeech();
+        if (txNew.strmessages.length() > MAX_TX_COMMENT_LEN)
+            txNew.strmessages.resize(MAX_TX_COMMENT_LEN);
     }
 
     CScript scriptStakeTo;

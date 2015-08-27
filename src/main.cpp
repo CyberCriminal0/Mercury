@@ -329,7 +329,7 @@ bool IsStandardTx(const CTransaction& tx, string& reason)
     }
 
     // Disallow large transaction comments
-    if (tx.strMERCURYSpeech.length() > MAX_TX_COMMENT_LEN) {
+    if (tx.strmessages.length() > MAX_TX_COMMENT_LEN) {
         reason = "tx-comment-too-large";
         return false;
     }

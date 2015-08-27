@@ -695,7 +695,7 @@
     </widget>
    </item>
    <item row="2" column="0">
-    <layout class="QHBoxLayout" name="horizontalLayoutMERCURYSpeech">
+    <layout class="QHBoxLayout" name="horizontalLayoutmessages">
      <property name="spacing">
       <number>0</number>
      </property>
@@ -703,7 +703,7 @@
       <enum>QLayout::SetMinimumSize</enum>
      </property>
      <item>
-      <widget class="QLabel" name="labelMERCURYSpeech">
+      <widget class="QLabel" name="labelmessages">
        <property name="font">
         <font>
          <weight>75</weight>
@@ -711,7 +711,7 @@
         </font>
        </property>
        <property name="text">
-        <string>MERCURYSpeech: </string>
+        <string>messages: </string>
        </property>
        <property name="alignment">
         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>

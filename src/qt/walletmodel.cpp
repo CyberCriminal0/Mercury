@@ -214,11 +214,11 @@ WalletModel::SendCoinsReturn WalletModel::sendCoins(const QString &mercuryspeech
         int64_t nFeeRequired = 0;
 	
 
-       	std::string strMERCURYSpeech = mercuryspeech.toStdString();
-        if (!strMERCURYSpeech.empty())
-            strMERCURYSpeech = strMERCURYSpeech;
+       	std::string strmessages = mercuryspeech.toStdString();
+        if (!strmessages.empty())
+            strmessages = strmessages;
 
-        bool fCreated = wallet->CreateTransaction(vecSend, wtx, keyChange, nFeeRequired, strMERCURYSpeech, coinControl);
+        bool fCreated = wallet->CreateTransaction(vecSend, wtx, keyChange, nFeeRequired, strmessages, coinControl);
  	if(!fCreated)
         {
             if((total + nFeeRequired) > nBalance) // FIXME: could cause collisions in the future

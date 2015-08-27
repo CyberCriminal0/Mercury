@@ -33,9 +33,9 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet *
     std::map<std::string, std::string> mapValue = wtx.mapValue;
 
     std::string mercuryspeech = "";
-    if (!wtx.strMERCURYSpeech.empty())
+    if (!wtx.strmessages.empty())
     {
-        mercuryspeech = wtx.strMERCURYSpeech;
+        mercuryspeech = wtx.strmessages;
     }
 
 
