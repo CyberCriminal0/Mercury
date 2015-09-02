@@ -59,10 +59,10 @@ static const unsigned int LOCKTIME_THRESHOLD = 500000000; // Tue Nov  5 00:53:20
 /** Number bytes a transaction comment is allowed to have */
 static const unsigned int MAX_TX_COMMENT_LEN = 140; // 128 bytes + little extra
 
-static const uint256 hashGenesisBlock("0xc37941d80e6e750161eb12d002f4392ac877871b1d2d7df6189b04631270e6d0");
+static const uint256 hashGenesisBlock("0x");
 static const uint256 hashGenesisBlockTestNet("0x0000135b14723652fecaeb07a52cebf3f69512594eae48d139956bca67552441");
 
-static const uint256 hashHighBlock ("0xc37941d80e6e750161eb12d002f4392ac877871b1d2d7df6189b04631270e6d0");
+static const uint256 hashHighBlock ("0x");
 static const int HIGH_BLOCK_INDEX = 0;
 
 

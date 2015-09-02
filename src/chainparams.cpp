@@ -82,9 +82,9 @@ public:
         //assert(genesis.hashMerkleRoot == uint256("0xc3a2eb01b4d3d9cdcf280594edde1100d1823251e1efea120e0d0f3ada9587a4"));
 
         // push peer seeders running this network crawler: https://github.com/dooglus/bitcoin-seeder/tree/mercury
-        PUSH_SEED("mercury.chunkhost.com")
-	PUSH_SEED("mercuryclient.com")
-	PUSH_SEED("76.74.178.223")
+        //PUSH_SEED("mercury.chunkhost.com")
+	//PUSH_SEED("mercuryclient.com")
+	//PUSH_SEED("76.74.178.223")
         base58Prefixes[PUBKEY_ADDRESS] = list_of(137);
         base58Prefixes[SCRIPT_ADDRESS] = list_of(13);
         //CLAM Secret key, from old base58.h (release 1.4.2.1)  == 5 + 128
